@@ -24,7 +24,7 @@
           <text value="Nombre"/>
         </properties>
       </component>
-      <component id="78d7c" class="javax.swing.JComboBox" binding="clasesDisponibles">
+      <component id="78d7c" class="javax.swing.JComboBox" binding="cmbClasesDisponibles">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -38,7 +38,7 @@
           <text value="Clases Disponibles"/>
         </properties>
       </component>
-      <component id="d4f5d" class="javax.swing.JTextArea" binding="informacionClase">
+      <component id="d4f5d" class="javax.swing.JTextArea" binding="txtInformacionClase">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
@@ -48,7 +48,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="9a9e2" class="javax.swing.JButton" binding="verMiHorarioButton" default-binding="true">
+      <component id="9a9e2" class="javax.swing.JButton" binding="btnVerMiHorario">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -56,7 +56,7 @@
           <text value="Ver mi Horario"/>
         </properties>
       </component>
-      <component id="d27f4" class="javax.swing.JButton" binding="registrarmeEsEsaClaseButton" default-binding="true">
+      <component id="d27f4" class="javax.swing.JButton" binding="btnRegistrarmeEsEsaClase">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

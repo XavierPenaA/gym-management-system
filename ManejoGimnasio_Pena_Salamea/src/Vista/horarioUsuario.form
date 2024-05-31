@@ -40,7 +40,7 @@
           <text value="Instructor:"/>
         </properties>
       </component>
-      <component id="aecf8" class="javax.swing.JTextArea" binding="nombreActividad">
+      <component id="aecf8" class="javax.swing.JTextArea" binding="txtNombreActividad">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
@@ -48,7 +48,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="b1a27" class="javax.swing.JTextArea" binding="diasActividad">
+      <component id="b1a27" class="javax.swing.JTextArea" binding="txtDiasActividad">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
@@ -56,7 +56,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="30d27" class="javax.swing.JTextArea" binding="instructorActividad">
+      <component id="30d27" class="javax.swing.JTextArea" binding="txtInstructorActividad">
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
@@ -64,7 +64,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="5835f" class="javax.swing.JLabel" binding="nombreUsuario">
+      <component id="5835f" class="javax.swing.JLabel" binding="txtNombreUsuario">
         <constraints>
           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -96,7 +96,7 @@
           <text value="Hora:"/>
         </properties>
       </component>
-      <component id="cee33" class="javax.swing.JTextArea" binding="horaActividad">
+      <component id="cee33" class="javax.swing.JTextArea" binding="txtHoraActividad">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
@@ -104,7 +104,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="a2feb" class="javax.swing.JTextArea" binding="inicioActividad">
+      <component id="a2feb" class="javax.swing.JTextArea" binding="txtInicioActividad">
         <constraints>
           <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
@@ -112,7 +112,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="635ba" class="javax.swing.JTextArea" binding="finalActividad">
+      <component id="635ba" class="javax.swing.JTextArea" binding="txtFinalActividad">
         <constraints>
           <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>

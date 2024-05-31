@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Vista.registrarClase">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="principalRegistrarClase" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1297" height="746"/>
+      <xy x="20" y="20" width="1587" height="746"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="cdde1" binding="principalRegistrarClase" layout-manager="GridLayoutManager" row-count="19" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="cdde1" binding="panel" layout-manager="GridLayoutManager" row-count="19" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -18,7 +18,7 @@
         <children>
           <component id="c50f7" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Registrar Clase"/>
@@ -56,7 +56,7 @@
               <text value="Instructor"/>
             </properties>
           </component>
-          <component id="f54ba" class="javax.swing.JTextField" binding="nombreGim">
+          <component id="f54ba" class="javax.swing.JTextField" binding="txtNombreGim">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -64,7 +64,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="1682f" class="javax.swing.JTextField" binding="direccionGim">
+          <component id="1682f" class="javax.swing.JTextField" binding="txtDescripcion">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -74,7 +74,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="13f2f" class="javax.swing.JTextField" binding="ubicacionesGim">
+          <component id="13f2f" class="javax.swing.JTextField" binding="txtCupo">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -103,7 +103,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="17671" class="javax.swing.JCheckBox" default-binding="true">
+                  <component id="17671" class="javax.swing.JCheckBox" binding="chkMiercoles">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -111,13 +111,13 @@
                       <text value="Miercoles"/>
                     </properties>
                   </component>
-                  <component id="f2172" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="f2172" class="javax.swing.JComboBox" binding="horaEntradaMiercoles">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="37236" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="37236" class="javax.swing.JComboBox" binding="minutoEntradaMiercoles">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -131,13 +131,13 @@
                       <text value="Hora de Entrada"/>
                     </properties>
                   </component>
-                  <component id="91387" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="91387" class="javax.swing.JComboBox" binding="horaCierreMiercoles">
                     <constraints>
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="34bb3" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="34bb3" class="javax.swing.JComboBox" binding="minutoCierreMiercoles">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -168,7 +168,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="7b7ae" class="javax.swing.JCheckBox" default-binding="true">
+                  <component id="7b7ae" class="javax.swing.JCheckBox" binding="chkJueves">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -176,13 +176,13 @@
                       <text value="Jueves"/>
                     </properties>
                   </component>
-                  <component id="b70df" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="b70df" class="javax.swing.JComboBox" binding="horaEntradaJueves">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="6eff7" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="6eff7" class="javax.swing.JComboBox" binding="minutoEntradaJueves">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -196,13 +196,13 @@
                       <text value="Hora de Entrada"/>
                     </properties>
                   </component>
-                  <component id="4c386" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="4c386" class="javax.swing.JComboBox" binding="horaCierreJueves">
                     <constraints>
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="23dde" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="23dde" class="javax.swing.JComboBox" binding="minutoCierreJueves">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -233,7 +233,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="d9ee5" class="javax.swing.JCheckBox" default-binding="true">
+                  <component id="d9ee5" class="javax.swing.JCheckBox" binding="chkViernes">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -241,13 +241,13 @@
                       <text value="Viernes"/>
                     </properties>
                   </component>
-                  <component id="b8350" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="b8350" class="javax.swing.JComboBox" binding="horaEntradaViernes">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="4392e" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="4392e" class="javax.swing.JComboBox" binding="minutoEntradaViernes">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -261,13 +261,13 @@
                       <text value="Hora de Entrada"/>
                     </properties>
                   </component>
-                  <component id="77211" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="77211" class="javax.swing.JComboBox" binding="horaCierreViernes">
                     <constraints>
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="af2cc" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="af2cc" class="javax.swing.JComboBox" binding="minutoCierreViernes">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -298,7 +298,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="7b5be" class="javax.swing.JCheckBox" default-binding="true">
+                  <component id="7b5be" class="javax.swing.JCheckBox" binding="chkSabado">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -306,13 +306,13 @@
                       <text value="Sabado"/>
                     </properties>
                   </component>
-                  <component id="392da" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="392da" class="javax.swing.JComboBox" binding="horaEntradaSabado">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="abf49" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="abf49" class="javax.swing.JComboBox" binding="minutoEntradaSabado">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -326,13 +326,13 @@
                       <text value="Hora de Entrada"/>
                     </properties>
                   </component>
-                  <component id="8bd33" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="8bd33" class="javax.swing.JComboBox" binding="horaCierreSabado">
                     <constraints>
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="9e616" class="javax.swing.JComboBox" default-binding="true">
+                  <component id="9e616" class="javax.swing.JComboBox" binding="minutoCierreSabado">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -358,7 +358,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="a4001" class="javax.swing.JCheckBox" default-binding="true">
+              <component id="a4001" class="javax.swing.JCheckBox" binding="chkLunes">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -366,13 +366,13 @@
                   <text value="Lunes"/>
                 </properties>
               </component>
-              <component id="5b055" class="javax.swing.JComboBox" default-binding="true">
+              <component id="5b055" class="javax.swing.JComboBox" binding="horaEntradaLunes">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="6aa39" class="javax.swing.JComboBox" default-binding="true">
+              <component id="6aa39" class="javax.swing.JComboBox" binding="minutoEntradaLunes">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -386,13 +386,13 @@
                   <text value="Hora de Entrada"/>
                 </properties>
               </component>
-              <component id="e552e" class="javax.swing.JComboBox" default-binding="true">
+              <component id="e552e" class="javax.swing.JComboBox" binding="horaCierreLunes">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="b6ec8" class="javax.swing.JComboBox" default-binding="true">
+              <component id="b6ec8" class="javax.swing.JComboBox" binding="minutoCierreLunes">
                 <constraints>
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -416,7 +416,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="3012c" class="javax.swing.JCheckBox" default-binding="true">
+              <component id="3012c" class="javax.swing.JCheckBox" binding="chkMartes">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -424,13 +424,13 @@
                   <text value="Martes"/>
                 </properties>
               </component>
-              <component id="132d4" class="javax.swing.JComboBox" default-binding="true">
+              <component id="132d4" class="javax.swing.JComboBox" binding="horaEntradaMartes">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="800f2" class="javax.swing.JComboBox" default-binding="true">
+              <component id="800f2" class="javax.swing.JComboBox" binding="minutoEntradaMartes">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -444,13 +444,13 @@
                   <text value="Hora de Entrada"/>
                 </properties>
               </component>
-              <component id="dd818" class="javax.swing.JComboBox" default-binding="true">
+              <component id="dd818" class="javax.swing.JComboBox" binding="horaCierreMartes">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="d65c2" class="javax.swing.JComboBox" default-binding="true">
+              <component id="d65c2" class="javax.swing.JComboBox" binding="minutoCierreMartes">
                 <constraints>
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -474,7 +474,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="37b09" class="javax.swing.JCheckBox" default-binding="true">
+              <component id="37b09" class="javax.swing.JCheckBox" binding="chkDomingo">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -482,13 +482,13 @@
                   <text value="Domingo"/>
                 </properties>
               </component>
-              <component id="163ba" class="javax.swing.JComboBox" default-binding="true">
+              <component id="163ba" class="javax.swing.JComboBox" binding="horaEntradaDomingo">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="f4734" class="javax.swing.JComboBox" default-binding="true">
+              <component id="f4734" class="javax.swing.JComboBox" binding="minutoEntradaDomingo">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -502,13 +502,13 @@
                   <text value="Hora de Entrada"/>
                 </properties>
               </component>
-              <component id="7da9d" class="javax.swing.JComboBox" default-binding="true">
+              <component id="7da9d" class="javax.swing.JComboBox" binding="horaCierreDomingo">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="13516" class="javax.swing.JComboBox" default-binding="true">
+              <component id="13516" class="javax.swing.JComboBox" binding="minutoCierreDomingo">
                 <constraints>
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -548,13 +548,13 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="8a1b2" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+              <component id="8a1b2" class="javax.swing.JComboBox" binding="cmbDiaFechaInicio">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="a8b1d" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+              <component id="a8b1d" class="javax.swing.JComboBox" binding="cmbMesFechaInicio">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -570,13 +570,13 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="c4238" class="javax.swing.JComboBox" default-binding="true">
+              <component id="c4238" class="javax.swing.JComboBox" binding="cmbDiaFechaFin">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="d686f" class="javax.swing.JComboBox" default-binding="true">
+              <component id="d686f" class="javax.swing.JComboBox" binding="cmbMesFechaFin">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -584,7 +584,7 @@
               </component>
             </children>
           </grid>
-          <component id="8fe06" class="javax.swing.JButton" binding="registrarGimnasioButton" default-binding="true">
+          <component id="8fe06" class="javax.swing.JButton" binding="btnRegistrarGimnasio">
             <constraints>
               <grid row="17" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -600,13 +600,13 @@
               <text value="Estado"/>
             </properties>
           </component>
-          <component id="64ec5" class="javax.swing.JComboBox" binding="comboBox4" default-binding="true">
+          <component id="64ec5" class="javax.swing.JComboBox" binding="cbmEstado">
             <constraints>
               <grid row="8" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
           </component>
-          <component id="38d6c" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+          <component id="38d6c" class="javax.swing.JComboBox" binding="cmbInstructor">
             <constraints>
               <grid row="10" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -628,7 +628,7 @@
               <text value="Errores"/>
             </properties>
           </component>
-          <component id="41c62" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="41c62" class="javax.swing.JTextField" binding="txtCosto">
             <constraints>
               <grid row="12" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>

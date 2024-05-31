@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="2d3b0" class="javax.swing.JButton" binding="iniciarSesiónButton" default-binding="true">
+      <component id="2d3b0" class="javax.swing.JButton" binding="btniniciarSesión">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -16,7 +16,7 @@
           <text value="Iniciar Sesión"/>
         </properties>
       </component>
-      <component id="f039b" class="javax.swing.JButton" binding="registrarseButton" default-binding="true">
+      <component id="f039b" class="javax.swing.JButton" binding="btnRegistrarse">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -24,7 +24,7 @@
           <text value="Registrarse"/>
         </properties>
       </component>
-      <component id="a4d51" class="javax.swing.JButton" binding="cerrarSesiónButton" default-binding="true">
+      <component id="a4d51" class="javax.swing.JButton" binding="btnCerrarSesión">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -53,7 +53,7 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="c1e63" class="javax.swing.JButton" binding="claseButton" default-binding="true">
+          <component id="c1e63" class="javax.swing.JButton" binding="btnClase">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -79,7 +79,7 @@
               <text value="Usuario Actual:"/>
             </properties>
           </component>
-          <component id="b17bb" class="javax.swing.JLabel" binding="nombresUsuario">
+          <component id="b17bb" class="javax.swing.JLabel" binding="txtNombresUsuario">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -87,7 +87,7 @@
               <text value="Nombre"/>
             </properties>
           </component>
-          <component id="e783e" class="javax.swing.JLabel" binding="estadoUsuario">
+          <component id="e783e" class="javax.swing.JLabel" binding="txtEstadoUsuario">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -95,7 +95,7 @@
               <text value="Estado"/>
             </properties>
           </component>
-          <component id="e44c1" class="javax.swing.JLabel" binding="telefonoUsuario">
+          <component id="e44c1" class="javax.swing.JLabel" binding="txtTelefonoUsuario">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -103,7 +103,7 @@
               <text value="Telefono"/>
             </properties>
           </component>
-          <component id="f7ac4" class="javax.swing.JLabel" binding="direccionUsuario">
+          <component id="f7ac4" class="javax.swing.JLabel" binding="txtDireccionUsuario">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -111,7 +111,7 @@
               <text value="Dirección"/>
             </properties>
           </component>
-          <component id="5550b" class="javax.swing.JLabel" binding="emailUsuario">
+          <component id="5550b" class="javax.swing.JLabel" binding="txtEmailUsuario">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -119,7 +119,7 @@
               <text value="Email"/>
             </properties>
           </component>
-          <component id="4548c" class="javax.swing.JLabel" binding="cedulaUsuario">
+          <component id="4548c" class="javax.swing.JLabel" binding="txtCedulaUsuario">
             <constraints>
               <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -127,7 +127,7 @@
               <text value="Cedula"/>
             </properties>
           </component>
-          <component id="7ac07" class="javax.swing.JLabel" binding="apellidosUsuario">
+          <component id="7ac07" class="javax.swing.JLabel" binding="txtApellidosUsuario">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -145,7 +145,7 @@
           <text value="Debes Iniciar Sesion primero"/>
         </properties>
       </component>
-      <component id="5bd84" class="javax.swing.JButton" binding="actualizarDatosButton" default-binding="true">
+      <component id="5bd84" class="javax.swing.JButton" binding="btnActualizarDatos">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -153,7 +153,7 @@
           <text value="Actualizar Datos"/>
         </properties>
       </component>
-      <component id="a4e4b" class="javax.swing.JLabel" binding="informacionSegunUsuario">
+      <component id="a4e4b" class="javax.swing.JLabel" binding="txtInformacionSegunUsuario">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -161,7 +161,7 @@
           <text value="Informacion Segun Usuario"/>
         </properties>
       </component>
-      <component id="fdacc" class="javax.swing.JLabel" binding="fechaInicio">
+      <component id="fdacc" class="javax.swing.JLabel" binding="txtFechaInicio">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -169,7 +169,7 @@
           <text value="Fecha Inicio"/>
         </properties>
       </component>
-      <component id="c975e" class="javax.swing.JLabel" binding="fechaFinal">
+      <component id="c975e" class="javax.swing.JLabel" binding="txtFechaFinal">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -177,7 +177,7 @@
           <text value="Fecha FInal"/>
         </properties>
       </component>
-      <component id="feaf9" class="javax.swing.JButton" binding="segunUsuarioButton" default-binding="true">
+      <component id="feaf9" class="javax.swing.JButton" binding="btnSegunUsuario">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

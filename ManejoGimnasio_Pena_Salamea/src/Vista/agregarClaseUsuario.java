@@ -2,11 +2,11 @@ package Vista;
 
 import javax.swing.*;
 
-public class agregarClaseUsuario {
+public class agregarClaseUsuario extends JFrame{
     private JLabel nombreUsuario;
-    private JComboBox clasesDisponibles;
-    private JTextArea informacionClase;
-    private JButton verMiHorarioButton;
-    private JButton registrarmeEsEsaClaseButton;
+    private JComboBox cmbClasesDisponibles;
+    private JTextArea txtInformacionClase;
+    private JButton btnVerMiHorario;
+    private JButton btnRegistrarmeEsEsaClase;
     private JPanel principalAgregarClaseUsuario;
 }

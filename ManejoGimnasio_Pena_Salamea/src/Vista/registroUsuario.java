@@ -2,19 +2,19 @@ package Vista;
 
 import javax.swing.*;
 
-public class registroUsuario {
-    private JPanel principalRegistro;
-    private JTextField nombres;
+public class registroUsuario extends JFrame{
+    private JPanel principalRegistroUsuario;
+    private JTextField txtNombres;
     private JLabel tituloRegistrarse;
-    private JTextField apellidos;
-    private JTextField email;
-    private JTextField telefono;
-    private JTextField direccion;
-    private JTextField cedula;
-    private JButton verificarButton;
+    private JTextField txtApellidos;
+    private JTextField txtEmail;
+    private JTextField txtTelefono;
+    private JTextField txtDireccion;
+    private JTextField txtCedula;
+    private JButton btnRegistrarse;
     private JLabel nombresTitulo;
     private JLabel apellidosTitulo;
-    private JPasswordField clave;
+    private JPasswordField txtClave;
     private JLabel emailTitulo;
     private JLabel claveTitulo;
     private JLabel telefonoTitulo;

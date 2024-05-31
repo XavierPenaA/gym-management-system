@@ -2,13 +2,13 @@ package Vista;
 
 import javax.swing.*;
 
-public class horarioUsuario {
-    private JTextArea nombreActividad;
-    private JTextArea diasActividad;
-    private JTextArea instructorActividad;
-    private JTextArea horaActividad;
-    private JTextArea inicioActividad;
-    private JTextArea finalActividad;
-    private JLabel nombreUsuario;
+public class horarioUsuario extends JFrame{
+    private JTextArea txtNombreActividad;
+    private JTextArea txtDiasActividad;
+    private JTextArea txtInstructorActividad;
+    private JTextArea txtHoraActividad;
+    private JTextArea txtInicioActividad;
+    private JTextArea txtFinalActividad;
+    private JLabel txtNombreUsuario;
     private JPanel principalHorarioUsuario;
 }

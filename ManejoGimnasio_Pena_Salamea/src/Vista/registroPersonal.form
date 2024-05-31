@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Vista.registroPersonal">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="21" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="principalRegistrarPersonal" layout-manager="GridLayoutManager" row-count="21" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="664"/>
@@ -24,7 +24,7 @@
           <text value="Nombres"/>
         </properties>
       </component>
-      <component id="a0da6" class="javax.swing.JTextField" binding="nombres">
+      <component id="a0da6" class="javax.swing.JTextField" binding="txtNombres">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -48,7 +48,7 @@
           <text value="Clave"/>
         </properties>
       </component>
-      <component id="6655e" class="javax.swing.JTextField" binding="apellidos">
+      <component id="6655e" class="javax.swing.JTextField" binding="txtApellidos">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -64,7 +64,7 @@
           <text value="Email"/>
         </properties>
       </component>
-      <component id="5f81a" class="javax.swing.JTextField" binding="email">
+      <component id="5f81a" class="javax.swing.JTextField" binding="txtEmail">
         <constraints>
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -80,7 +80,7 @@
           <text value="Telefono"/>
         </properties>
       </component>
-      <component id="27799" class="javax.swing.JTextField" binding="telefono">
+      <component id="27799" class="javax.swing.JTextField" binding="txtTelefono">
         <constraints>
           <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -96,7 +96,7 @@
           <text value="Dirección"/>
         </properties>
       </component>
-      <component id="ea899" class="javax.swing.JTextField" binding="direccion">
+      <component id="ea899" class="javax.swing.JTextField" binding="txtDireccion">
         <constraints>
           <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -112,7 +112,7 @@
           <text value="Cedula"/>
         </properties>
       </component>
-      <component id="11d37" class="javax.swing.JTextField" binding="cedula">
+      <component id="11d37" class="javax.swing.JTextField" binding="txtCedula">
         <constraints>
           <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -122,7 +122,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="4cdb5" class="javax.swing.JButton" binding="verificarButton" custom-create="true">
+      <component id="4cdb5" class="javax.swing.JButton" binding="btnRegistrarse">
         <constraints>
           <grid row="19" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -138,7 +138,7 @@
           <text value="Errores"/>
         </properties>
       </component>
-      <component id="abfb" class="javax.swing.JPasswordField" binding="clave">
+      <component id="abfb" class="javax.swing.JPasswordField" binding="txtClave">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -154,7 +154,7 @@
           <text value="Rol"/>
         </properties>
       </component>
-      <component id="e76cf" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="e76cf" class="javax.swing.JTextField" binding="txtRol">
         <constraints>
           <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -170,7 +170,7 @@
           <text value="Jornada"/>
         </properties>
       </component>
-      <component id="71838" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="71838" class="javax.swing.JComboBox" binding="cmbJornada">
         <constraints>
           <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
