@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="principalRegistroJornada" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="22" width="698" height="226"/>
+      <xy x="20" y="22" width="851" height="226"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -16,7 +16,7 @@
           <text value="Registrar Jornada"/>
         </properties>
       </component>
-      <grid id="aee48" layout-manager="GridLayoutManager" row-count="2" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="aee48" layout-manager="GridLayoutManager" row-count="2" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -48,44 +48,44 @@
               <text value="Hora Inicio: "/>
             </properties>
           </component>
-          <component id="b79a7" class="javax.swing.JTextField" binding="txtHoraInicio">
-            <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="e7236" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Hora Fin: "/>
             </properties>
           </component>
-          <component id="de80" class="javax.swing.JTextField" binding="txtHoraFin">
+          <component id="48cfb" class="javax.swing.JComboBox" binding="comboBoxHoraInicio">
             <constraints>
-              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="c038" class="javax.swing.JComboBox" binding="comboBoxHoraFin">
+            <constraints>
+              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="75762" class="javax.swing.JComboBox" binding="comboBoxMinutoInicio">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="1e8ce" class="javax.swing.JComboBox" binding="comboBoxMinutoFin">
+            <constraints>
+              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
           </component>
           <component id="ea595" class="javax.swing.JButton" binding="btnAgregarJornada">
             <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Agregar Jornada"/>
-            </properties>
-          </component>
-          <component id="40fe5" class="javax.swing.JButton" binding="btnCancelar">
-            <constraints>
-              <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Cancelar"/>
             </properties>
           </component>
         </children>

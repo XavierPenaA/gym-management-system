@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Vista.ventanaPrincipal">
-  <grid id="27dc6" binding="principal" layout-manager="GridLayoutManager" row-count="8" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="principal" layout-manager="GridLayoutManager" row-count="9" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="823" height="400"/>
@@ -10,7 +10,7 @@
     <children>
       <component id="2d3b0" class="javax.swing.JButton" binding="btniniciarSesión">
         <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Iniciar Sesión"/>
@@ -18,7 +18,7 @@
       </component>
       <component id="f039b" class="javax.swing.JButton" binding="btnRegistrarse">
         <constraints>
-          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Registrarse"/>
@@ -26,7 +26,7 @@
       </component>
       <component id="a4d51" class="javax.swing.JButton" binding="btnCerrarSesión">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Cerrar Sesión"/>
@@ -40,33 +40,57 @@
           <text value="Administración del Gimnasio-Pantalla Principal"/>
         </properties>
       </component>
-      <grid id="88bdd" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="88bdd" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="1" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="6" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
           <vspacer id="8936">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="4" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="c1e63" class="javax.swing.JButton" binding="btnClase">
+          <component id="c1e63" class="javax.swing.JButton" binding="btnFacturar">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Clase"/>
+              <text value="Facturar"/>
+            </properties>
+          </component>
+          <component id="976cd" class="javax.swing.JButton" binding="btnSegunUsuario6">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+          <component id="1921f" class="javax.swing.JButton" binding="btnSegunUsuario7">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+          <component id="718a8" class="javax.swing.JButton" binding="btnSegunUsuario8">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Button"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="d1e09" binding="informacionUsuario" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d1e09" binding="pnlInformacionUsuario" layout-manager="GridLayoutManager" row-count="9" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="0" row-span="3" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="7" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -111,12 +135,12 @@
               <text value="Dirección"/>
             </properties>
           </component>
-          <component id="5550b" class="javax.swing.JLabel" binding="txtEmailUsuario">
+          <component id="5550b" class="javax.swing.JLabel" binding="txtRolUsuario">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Email"/>
+              <text value="Rol"/>
             </properties>
           </component>
           <component id="4548c" class="javax.swing.JLabel" binding="txtCedulaUsuario">
@@ -135,56 +159,66 @@
               <text value="Apellidos"/>
             </properties>
           </component>
+          <component id="5bd84" class="javax.swing.JButton" binding="btnSegunUsuario5">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Actualizar Datos"/>
+            </properties>
+          </component>
         </children>
       </grid>
-      <component id="1218b" class="javax.swing.JLabel">
+      <component id="1218b" class="javax.swing.JLabel" binding="labelInfoSesion">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Debes Iniciar Sesion primero"/>
         </properties>
       </component>
-      <component id="5bd84" class="javax.swing.JButton" binding="btnActualizarDatos">
+      <grid id="b2016" binding="pnlSegunUsuario" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="2" row-span="7" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <text value="Actualizar Datos"/>
-        </properties>
-      </component>
-      <component id="a4e4b" class="javax.swing.JLabel" binding="txtInformacionSegunUsuario">
-        <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Informacion Segun Usuario"/>
-        </properties>
-      </component>
-      <component id="fdacc" class="javax.swing.JLabel" binding="txtFechaInicio">
-        <constraints>
-          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Fecha Inicio"/>
-        </properties>
-      </component>
-      <component id="c975e" class="javax.swing.JLabel" binding="txtFechaFinal">
-        <constraints>
-          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Fecha FInal"/>
-        </properties>
-      </component>
-      <component id="feaf9" class="javax.swing.JButton" binding="btnSegunUsuario">
-        <constraints>
-          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="segunUsuario"/>
-        </properties>
-      </component>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="feaf9" class="javax.swing.JButton" binding="btnSegunUsuario">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="segunUsuario"/>
+            </properties>
+          </component>
+          <component id="6da32" class="javax.swing.JButton" binding="btnSegunUsuario2">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="segunUsuario2"/>
+            </properties>
+          </component>
+          <component id="51037" class="javax.swing.JButton" binding="btnSegunUsuario3">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="segunUsuario3"/>
+            </properties>
+          </component>
+          <component id="8bac1" class="javax.swing.JButton" binding="btnSegunUsuario4">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="segunUsuario4"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

@@ -3,10 +3,11 @@ package Vista;
 import javax.swing.*;
 
 public class registroJornada extends JFrame{
-    private JTextField txtNombre;
-    private JTextField txtHoraInicio;
-    private JTextField txtHoraFin;
-    private JButton btnAgregarJornada;
-    private JButton btnCancelar;
-    private JPanel principalRegistroJornada;
+    public JTextField txtNombre;
+    public JButton btnAgregarJornada;
+    public JPanel principalRegistroJornada;
+    public JComboBox<String> comboBoxHoraInicio;
+    public JComboBox<String> comboBoxHoraFin;
+    public JComboBox<String> comboBoxMinutoInicio;
+    public JComboBox<String> comboBoxMinutoFin;
 }

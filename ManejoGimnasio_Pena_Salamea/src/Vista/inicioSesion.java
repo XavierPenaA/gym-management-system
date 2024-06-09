@@ -3,12 +3,12 @@ package Vista;
 import javax.swing.*;
 
 public class inicioSesion extends JFrame{
-    private JTextField txtCedula;
-    private JTextField txtClave;
-    private JButton btnverificar;
-    private JLabel errores;
-    private JLabel tituloInicioSesion;
-    private JLabel cedulaTitulo;
-    private JLabel claveTitulo;
-    private JPanel principalInicioSesion;
+    public JTextField txtCedula;
+    public JTextField txtClave;
+    public JButton btnverificar;
+    public JLabel errores;
+    public JLabel tituloInicioSesion;
+    public JLabel cedulaTitulo;
+    public JLabel claveTitulo;
+    public JPanel principalInicioSesion;
 }

@@ -3,15 +3,22 @@ package Vista;
 import javax.swing.*;
 
 public class factura extends JFrame{
-    private JTextField txtNombre;
-    private JTextField txtCodigo;
-    private JTextField txtTotal;
-    private JButton btnCalcular;
-    private JButton btnGuardar;
-    private JButton btnCancelar;
-    private JTable tabla;
-    private JTextField txtCantidad;
-    private JTextField txtPrecio;
-    private JButton agregarDetalleButton;
-    private JPanel principalFactura;
+    public JTextField txtNombre;
+    public JButton btnGuardar;
+    public JTable tabla;
+    public JTextField txtCantidad;
+    public JTextField txtPrecio;
+    public JButton agregarDetalleButton;
+    public JPanel principalFactura;
+    public JComboBox<String> comboBoxActividades;
+    public JTextField txtCedula;
+    public JButton buscarUsuarioButton;
+    public JPanel pnlInformacionUsuario;
+    public JLabel txtNombresUsuario;
+    public JLabel txtTelefonoUsuario;
+    public JLabel txtDireccionUsuario;
+    public JLabel txtCedulaUsuario;
+    public JLabel txtApellidosUsuario;
+    public JLabel ponerPrecioFinal;
+    public JLabel txtCodigo;
 }
