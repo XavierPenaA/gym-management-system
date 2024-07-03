@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class registrarActividad extends JFrame{
     public JPanel panel;
-    public JTextField txtNombreGim;
+    public JTextField txtNombreAct;
     public JTextField txtDescripcion;
     public JTextField txtCupo;
     public JLabel errores;

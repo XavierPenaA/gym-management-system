@@ -12,8 +12,8 @@ public class Miembro extends Persona implements Serializable {
     ArrayList<String> codigoFacturas;
     LinkedList<Map.Entry<String, LocalDate>> listaActividadesRegistrado;
 
-    public Miembro(String cedula, String nombres, String apellidos, String direccion, String telefono, LocalDate fechaInicio, LocalDate fechaFin) {
-        super(cedula, nombres, apellidos, direccion, telefono);
+    public Miembro(String cedula, String nombres, String apellidos, String direccion, String telefono, LocalDate fechaInicio, LocalDate fechaFin,String rutaFoto) {
+        super(cedula, nombres, apellidos, direccion, telefono,rutaFoto);
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         codigoFacturas=new ArrayList<>();

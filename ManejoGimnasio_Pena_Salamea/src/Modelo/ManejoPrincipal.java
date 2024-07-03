@@ -9,8 +9,9 @@ public class ManejoPrincipal implements Serializable{
     private ManejoGimnasio manejoGimnasio;
     private ManejoActividad manejoActividad;
     private ManejoFacturas manejoFacturas;
+    private Verificacion verificacion;
     private static ManejoPrincipal instancia;
-    Propietario duenio= new Propietario("0150097954","Xavier","Peña","Av. Don Bosco","0962833533","prueba1234","20191712561");
+    Propietario duenio= new Propietario("0150097954","Xavier","Peña","Av. Don Bosco","0962833533","prueba1234","20191712561","imagenes/propietario.jpg");
     private ManejoPrincipal() {
         manejoMiembros = ManejoMiembros.getInstancia();
         manejoPersonal = ManejoPersonal.getInstancia();
@@ -18,6 +19,7 @@ public class ManejoPrincipal implements Serializable{
         manejoGimnasio = ManejoGimnasio.getInstancia();
         manejoActividad = ManejoActividad.getInstancia();
         manejoFacturas= ManejoFacturas.getInstancia();
+        verificacion= Verificacion.getInstancia();
     }
 
     public static ManejoPrincipal getInstancia() {
@@ -45,6 +47,9 @@ public class ManejoPrincipal implements Serializable{
     }
     public ManejoFacturas getManejoFacturas(){
         return manejoFacturas;
+    }
+    public Verificacion getVerificacion(){
+        return verificacion;
     }
     public Propietario iniciarSesionPropietario(String cedula, String contrasenia) {
         if (duenio.getCedula().equals(cedula) && duenio.getContrasenia().equals(contrasenia)) {

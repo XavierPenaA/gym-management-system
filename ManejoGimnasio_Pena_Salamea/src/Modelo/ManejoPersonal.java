@@ -17,8 +17,9 @@ public class ManejoPersonal implements Serializable {
         }
         return instancia;
     }
-    public void registrarPersonal(String cedula, String nombres, String apellidos, String direccion, String telefono, String rol, String contrasenia, Jornada jornada) {
-        personal.add(new Personal(cedula, nombres, apellidos, direccion, telefono, rol, contrasenia, jornada));
+    public void registrarPersonal(String cedula, String nombres, String apellidos, String direccion, String telefono, String rol, String contrasenia, Jornada jornada, String rutaFoto) {
+
+        personal.add(new Personal(cedula, nombres, apellidos, direccion, telefono, rol, contrasenia, jornada,rutaFoto));
     }
     public Personal iniciarSesion(String cedula, String contrasenia) {
         for (Personal empleado : personal) {

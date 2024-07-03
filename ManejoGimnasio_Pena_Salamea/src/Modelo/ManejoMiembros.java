@@ -21,8 +21,8 @@ public class ManejoMiembros implements Serializable{
         return instancia;
     }
 
-    public void registrarMiembro(String cedula, String nombres, String apellidos, String direccion, String telefono, LocalDate fechaInicio, LocalDate fechaFin) {
-        miembros.add(new Miembro(cedula, nombres, apellidos, direccion, telefono, fechaInicio, fechaFin));
+    public void registrarMiembro(String cedula, String nombres, String apellidos, String direccion, String telefono, LocalDate fechaInicio, LocalDate fechaFin,String rutaFoto) {
+        miembros.add(new Miembro(cedula, nombres, apellidos, direccion, telefono, fechaInicio, fechaFin,rutaFoto));
     }
     public void agregarFactura(String cedula, String nombreFactura){
         for (Miembro miembro : miembros) {

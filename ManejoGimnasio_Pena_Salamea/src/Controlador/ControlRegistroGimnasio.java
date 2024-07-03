@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Horario;
 import Modelo.ManejoPrincipal;
+import Modelo.Verificacion;
 import Vista.registrarGimnasio;
 import Vista.registroPersonal;
 
@@ -98,9 +99,20 @@ public class ControlRegistroGimnasio implements ActionListener {
             controlRegistroEquipo.actualizarComboBox();
         }
         if(e.getSource()==vista.btnAgregar){
-            manejoPrincipal.getManejoGimnasio().agregarUbicaciones(vista.txtCodigo.getText(),vista.txtNombre.getText());
-            actualizarTablaUbicaciones();
-            actualizarTablaEquipos();
+            if(manejoPrincipal.getManejoGimnasio().equiposSinAsignar.isEmpty()){
+                JOptionPane.showMessageDialog(null,"Ingrese equipos para la ubicación");
+            }
+            else if (vista.txtCodigo.getText()!=null){
+                JOptionPane.showMessageDialog(null,"Ingrese un código");
+            }
+            else if(!manejoPrincipal.getVerificacion().validarLetras(vista.txtNombre.getText())){
+                JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
+            }
+            else{
+                manejoPrincipal.getManejoGimnasio().agregarUbicaciones(vista.txtCodigo.getText(),vista.txtNombre.getText());
+                actualizarTablaUbicaciones();
+                actualizarTablaEquipos();
+            }
         }
         if(e.getSource()==vista.btnRegistrarGimnasio){
             Horario horario;
@@ -112,11 +124,20 @@ public class ControlRegistroGimnasio implements ActionListener {
                     Integer.parseInt((String) Objects.requireNonNull(vista.comboBoxHoraFin.getSelectedItem())),
                     Integer.parseInt((String) Objects.requireNonNull(vista.comboBoxMinutoFin.getSelectedItem()))
             );
-            horario=new Horario(horaInicio,horaFin);
-            manejoPrincipal.getManejoGimnasio().agregarGimnasio(vista.txtNombreGim.getText(),vista.txtDireccionGim.getText(),vista.txtTelefonoGim.getText(),horario);
-            actualizarTablaUbicaciones();
-            actualizarTablaEquipos();
-            manejoPrincipal.getManejoGimnasio().imprimirGimnasios();
+            if(!manejoPrincipal.getVerificacion().esHoraMayor(horaInicio,horaFin)){
+                JOptionPane.showMessageDialog(null, Verificacion.mensajeERROR);
+            }
+            else if(manejoPrincipal.getManejoGimnasio().ubicacionesSinAsignar.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Ingrese una ubicación");
+            }
+            else{
+                horario=new Horario(horaInicio,horaFin);
+                manejoPrincipal.getManejoGimnasio().agregarGimnasio(vista.txtNombreGim.getText(),vista.txtDireccionGim.getText(),
+                        vista.txtTelefonoGim.getText(),horario);
+                actualizarTablaUbicaciones();
+                actualizarTablaEquipos();
+                manejoPrincipal.getManejoGimnasio().imprimirGimnasios();
+            }
         }
     }
 }

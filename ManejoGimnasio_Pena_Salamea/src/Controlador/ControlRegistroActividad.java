@@ -85,11 +85,11 @@ public class ControlRegistroActividad implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnRegistrarClase){
             int day = (int) vista.cmbDiaFechaInicio.getSelectedItem();
-            int month = vista.cmbMesFechaInicio.getSelectedIndex() + 1; // Los meses en LocalDate son 1-based
+            int month = vista.cmbMesFechaInicio.getSelectedIndex() + 1;
             int year = (int) vista.cmbYearFechaInicio.getSelectedItem();
             LocalDate fechaInicio = LocalDate.of(year, month, day);
             int day2 = (int) vista.cmbDiaFechaFin.getSelectedItem();
-            int month2 = vista.cmbMesFechaFin.getSelectedIndex() + 1; // Los meses en LocalDate son 1-based
+            int month2 = vista.cmbMesFechaFin.getSelectedIndex() + 1;
             int year2 = (int) vista.cmbYearFechaFinal.getSelectedItem();
             LocalDate fechaFin = LocalDate.of(year2, month2, day2);
             LocalTime horaInicio = LocalTime.of(
@@ -100,11 +100,37 @@ public class ControlRegistroActividad implements ActionListener {
                     Integer.parseInt((String) Objects.requireNonNull(vista.comboBoxHoraFin.getSelectedItem())),
                     Integer.parseInt((String) Objects.requireNonNull(vista.comboBoxMinutoFin.getSelectedItem()))
             );
-            Horario horario=new Horario(fechaInicio,fechaFin,horaInicio,horaFin);
-            Ubicacion ubicacion=manejoPrincipal.getManejoGimnasio().buscarUbicacion((String) vista.comboBoxGimnasios.getSelectedItem(), (String) vista.comboBoxUbicaciones.getSelectedItem());
-            Personal instructor=manejoPrincipal.getManejoPersonal().buscarPersonalPorNombre((String) vista.cmbInstructor.getSelectedItem());
-            manejoPrincipal.getManejoActividad().agregarActividad(vista.txtCodigo.getText(),vista.txtNombreGim.getText(),vista.txtDescripcion.getText(),Integer.parseInt(vista.txtCupo.getText()),Integer.parseInt(vista.txtCupo.getText()), (String) vista.cbmEstado.getSelectedItem(),horario,ubicacion,instructor,Double.parseDouble(vista.txtCosto.getText()), (String) vista.comboBoxDiasSemana.getSelectedItem());
-            manejoPrincipal.getManejoActividad().imprimirActividades();
+            if(!manejoPrincipal.getVerificacion().esFechaMayor(fechaInicio,fechaFin)){
+                JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
+            }
+            else if(!manejoPrincipal.getVerificacion().esHoraMayor(horaInicio,horaFin)){
+                JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
+            }
+             else if(vista.txtCodigo.getText()!=null){
+                JOptionPane.showMessageDialog(null,"Ingrese un código");
+            }
+            else if(manejoPrincipal.getVerificacion().validarLetras(vista.txtNombreAct.getText())){
+                JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
+            }
+            else if(manejoPrincipal.getVerificacion().validarNumero(vista.txtCupo.getText())){
+                JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
+            }
+            else{
+                Horario horario=new Horario(fechaInicio,fechaFin,horaInicio,horaFin);
+                Ubicacion ubicacion=
+                        manejoPrincipal.getManejoGimnasio().buscarUbicacion((String) vista.comboBoxGimnasios.getSelectedItem(),
+                                (String) vista.comboBoxUbicaciones.getSelectedItem());
+                Personal instructor=
+                        manejoPrincipal.getManejoPersonal().buscarPersonalPorNombre((String) vista.cmbInstructor.getSelectedItem());
+                manejoPrincipal.getManejoActividad().agregarActividad(vista.txtCodigo.getText(),vista.txtNombreAct.getText(),
+                        vista.txtDescripcion.getText(),Integer.parseInt(vista.txtCupo.getText()),
+                        Integer.parseInt(vista.txtCupo.getText()), (String) vista.cbmEstado.getSelectedItem(),horario,
+                        ubicacion,instructor,
+                        Double.parseDouble(vista.txtCosto.getText()),
+                        (String) vista.comboBoxDiasSemana.getSelectedItem());
+                manejoPrincipal.getManejoActividad().imprimirActividades();
+            }
+
         }
         if(e.getSource()==vista.actualizarUbicacionesButton){
             actualizarComboBoxUbicaciones();

@@ -20,7 +20,6 @@ public class ControlInicioSesion implements ActionListener {
         vistaInicioSesion.setVisible(true);
         vistaInicioSesion.btnverificar.addActionListener(this);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()== vistaInicioSesion.btnverificar){

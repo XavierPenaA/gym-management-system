@@ -56,7 +56,7 @@
               <text value="Instructor"/>
             </properties>
           </component>
-          <component id="f54ba" class="javax.swing.JTextField" binding="txtNombreGim">
+          <component id="f54ba" class="javax.swing.JTextField" binding="txtNombreAct">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>

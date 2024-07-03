@@ -3,9 +3,9 @@ package Vista;
 import javax.swing.*;
 
 public class ventanaPrincipal extends JFrame{
-    public JButton btniniciarSesión;
+    public JButton btniniciarSesion;
     public JButton btnRegistrarse;
-    public JButton btnCerrarSesión;
+    public JButton btnCerrarSesion;
     public JPanel pnlInformacionUsuario;
     public JPanel principal;
     public JLabel tituloPrincipal;
@@ -28,5 +28,6 @@ public class ventanaPrincipal extends JFrame{
     public JButton btnSegunUsuario6;
     public JButton btnSegunUsuario7;
     public JButton btnSegunUsuario8;
+    public JLabel foto;
 
 }

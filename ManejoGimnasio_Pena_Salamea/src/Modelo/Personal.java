@@ -7,8 +7,8 @@ public class Personal extends Persona implements Serializable {
     String contrasenia;
     Jornada jornada;
 
-    public Personal(String cedula, String nombres, String apellidos, String direccion, String telefono, String rol, String contrasenia, Jornada jornada) {
-        super(cedula, nombres, apellidos, direccion, telefono);
+    public Personal(String cedula, String nombres, String apellidos, String direccion, String telefono, String rol, String contrasenia, Jornada jornada,String rutaFoto) {
+        super(cedula, nombres, apellidos, direccion, telefono,rutaFoto);
         this.rol = rol;
         this.contrasenia = contrasenia;
         this.jornada = jornada;

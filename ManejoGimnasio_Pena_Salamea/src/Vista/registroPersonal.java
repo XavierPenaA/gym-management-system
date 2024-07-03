@@ -21,4 +21,6 @@ public class registroPersonal extends JFrame{
     public JTextField txtRol;
     public JComboBox<String> cmbJornada;
     public JPanel principalRegistrarPersonal;
+    public JButton escogerFotoButton;
+    public JLabel foto;
 }

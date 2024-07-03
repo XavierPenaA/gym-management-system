@@ -6,8 +6,8 @@ public class Propietario extends Persona implements Serializable {
     String contrasenia;
     String ruc;
 
-    public Propietario(String cedula, String nombres, String apellidos, String direccion, String telefono, String contrasenia, String ruc) {
-        super(cedula, nombres, apellidos, direccion, telefono);
+    public Propietario(String cedula, String nombres, String apellidos, String direccion, String telefono, String contrasenia, String ruc, String rutaFoto) {
+        super(cedula, nombres, apellidos, direccion, telefono, rutaFoto);
         this.contrasenia = contrasenia;
         this.ruc = ruc;
     }

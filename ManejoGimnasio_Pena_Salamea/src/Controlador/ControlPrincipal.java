@@ -4,6 +4,7 @@ import Modelo.*;
 import Vista.ventanaPrincipal;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,8 +21,8 @@ public class ControlPrincipal implements ActionListener {
         vista.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         vista.setVisible(true);
         vista.btnFacturar.addActionListener(this);
-        vista.btniniciarSesión.addActionListener(this);
-        vista.btnCerrarSesión.addActionListener(this);
+        vista.btniniciarSesion.addActionListener(this);
+        vista.btnCerrarSesion.addActionListener(this);
         vista.btnRegistrarse.addActionListener(this);
         vista.btnSegunUsuario.addActionListener(this);
         vista.btnSegunUsuario2.addActionListener(this);
@@ -44,84 +45,73 @@ public class ControlPrincipal implements ActionListener {
             vista.btnSegunUsuario5.setVisible(false);
             vista.btnFacturar.setVisible(false);
             vista.btnRegistrarse.setVisible(false);
-            vista.btnCerrarSesión.setVisible(false);
-            vista.btniniciarSesión.setVisible(true);
+            vista.btnCerrarSesion.setVisible(false);
+            vista.btniniciarSesion.setVisible(true);
             vista.btnSegunUsuario.setVisible(false);
             vista.pnlInformacionUsuario.setVisible(false);
             vista.pnlSegunUsuario.setVisible(false);
             vista.btnSegunUsuario6.setVisible(false);
             vista.btnSegunUsuario7.setVisible(false);
             vista.btnSegunUsuario8.setVisible(false);
+            vista.foto.setVisible(false);
         }
-        if(logeado instanceof Personal){
+        else {
             vista.pnlInformacionUsuario.setVisible(true);
             vista.txtNombresUsuario.setText(logeado.getNombres());
             vista.txtApellidosUsuario.setText(logeado.getApellidos());
             vista.txtCedulaUsuario.setText(logeado.getCedula());
-            vista.txtRolUsuario.setText(((Personal) logeado).getRol());
             vista.txtDireccionUsuario.setText(logeado.getDireccion());
             vista.txtTelefonoUsuario.setText(logeado.getTelefono());
             vista.pnlSegunUsuario.setVisible(true);
             vista.labelInfoSesion.setVisible(false);
-            vista.btniniciarSesión.setVisible(false);
-            vista.btnRegistrarse.setVisible(true);
-            vista.btnFacturar.setVisible(true);
-            vista.btnRegistrarse.setText("Registrar Usuarios");
-            vista.btnCerrarSesión.setVisible(true);
-            vista.btnSegunUsuario.setVisible(true);
-            vista.btnSegunUsuario.setText("Registrar Actividad");
-            vista.btnSegunUsuario2.setVisible(true);
-            vista.btnSegunUsuario2.setText("Listar Miembros");
-            vista.btnSegunUsuario3.setVisible(true);
-            vista.btnSegunUsuario3.setText("Buscar/Editar Miembros");
-            vista.btnSegunUsuario4.setVisible(true);
-            vista.btnSegunUsuario4.setText("Listar Actividad");
-            vista.btnSegunUsuario5.setVisible(true);
-            vista.btnSegunUsuario5.setText("Buscar/Editar Actividad");
-            vista.btnRegistrarse.setText("Registrar Miembro");
-            vista.btnCerrarSesión.setVisible(true);
-        }
-        if(logeado instanceof Propietario){
-            vista.pnlSegunUsuario.setVisible(true);
-            vista.pnlInformacionUsuario.setVisible(true);
-            vista.txtNombresUsuario.setText(logeado.getNombres());
-            vista.txtApellidosUsuario.setText(logeado.getApellidos());
-            vista.txtCedulaUsuario.setText(logeado.getCedula());
-            vista.txtRolUsuario.setText("Dueño");
-            vista.txtDireccionUsuario.setText(logeado.getDireccion());
-            vista.txtTelefonoUsuario.setText(logeado.getTelefono());
-            vista.pnlSegunUsuario.setVisible(true);
-            vista.btnFacturar.setVisible(true);
-            vista.labelInfoSesion.setVisible(false);
-            vista.btniniciarSesión.setVisible(false);
-            vista.btnRegistrarse.setVisible(true);
-            vista.btnSegunUsuario.setVisible(true);
-            vista.btnSegunUsuario.setText("Registrar Jornada");
-            vista.btnSegunUsuario2.setVisible(true);
-            vista.btnSegunUsuario2.setText("Registrar Gimnasio");
-            vista.btnSegunUsuario3.setVisible(true);
-            vista.btnSegunUsuario3.setText("Listar Personal");
-            vista.btnSegunUsuario4.setVisible(true);
-            vista.btnSegunUsuario4.setText("Listar Gimnasio");
-            vista.btnSegunUsuario5.setVisible(true);
-            vista.btnSegunUsuario5.setText("Listar Facturas");
-            vista.btnSegunUsuario6.setVisible(true);
-            vista.btnSegunUsuario6.setText("Buscar Factura");
-            vista.btnSegunUsuario7.setVisible(true);
-            vista.btnSegunUsuario7.setText("Buscar/Editar Personal");
-            vista.btnSegunUsuario8.setVisible(true);
-            vista.btnSegunUsuario8.setText("Buscar/Editar Gimnasio");
-            vista.btnRegistrarse.setText("Registrar Personal");
-            vista.btnCerrarSesión.setVisible(true);
+            vista.btniniciarSesion.setVisible(false);
+            vista.btnCerrarSesion.setVisible(true);
+            vista.foto.setVisible(true);
+            ImageIcon foto = new ImageIcon(logeado.getRutaFoto());
+            Image img = foto.getImage();
+            Image scaledImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            vista.foto.setIcon(new ImageIcon(scaledImg));
+
+            if (logeado instanceof Personal) {
+                vista.txtRolUsuario.setText(((Personal) logeado).getRol());
+                vista.btnRegistrarse.setText("Registrar Miembro");
+                vista.btnFacturar.setVisible(true);
+                vista.btnSegunUsuario.setText("Registrar Actividad");
+                vista.btnSegunUsuario2.setText("Listar Miembros");
+                vista.btnSegunUsuario3.setText("Buscar/Editar Miembros");
+                vista.btnSegunUsuario4.setText("Listar Actividad");
+                vista.btnSegunUsuario5.setText("Buscar/Editar Actividad");
+                vista.btnRegistrarse.setVisible(true);
+                vista.btnSegunUsuario6.setVisible(false);
+                vista.btnSegunUsuario7.setVisible(false);
+                vista.btnSegunUsuario8.setVisible(false);
+            }
+            else if (logeado instanceof Propietario) {
+                vista.txtRolUsuario.setText("Dueño");
+                vista.btnRegistrarse.setText("Registrar Personal");
+                vista.btnFacturar.setVisible(true);
+                vista.btnSegunUsuario.setText("Registrar Jornada");
+                vista.btnSegunUsuario2.setText("Registrar Gimnasio");
+                vista.btnSegunUsuario3.setText("Listar Personal");
+                vista.btnSegunUsuario4.setText("Listar Gimnasio");
+                vista.btnSegunUsuario5.setText("Listar Facturas");
+                vista.btnSegunUsuario6.setText("Buscar Factura");
+                vista.btnSegunUsuario7.setText("Buscar/Editar Personal");
+                vista.btnSegunUsuario8.setText("Buscar/Editar Gimnasio");
+                vista.btnRegistrarse.setVisible(true);
+                vista.btnSegunUsuario6.setVisible(true);
+                vista.btnSegunUsuario7.setVisible(true);
+                vista.btnSegunUsuario8.setVisible(true);
+            }
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==vista.btniniciarSesión){
+        if(e.getSource()==vista.btniniciarSesion){
             ControlInicioSesion controlInicioSesion=new ControlInicioSesion(this);
         }
-        if(e.getSource()==vista.btnCerrarSesión){
+        if(e.getSource()==vista.btnCerrarSesion){
             logeado = null;
             definirUsuarioLogeado();
         }

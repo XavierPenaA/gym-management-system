@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.ManejoPrincipal;
+import Modelo.Verificacion;
 import Vista.registroJornada;
 import Vista.registroUsuario;
 
@@ -49,8 +50,16 @@ public class ControlRegistroJornada implements ActionListener {
                     Integer.parseInt((String) Objects.requireNonNull(vista.comboBoxHoraFin.getSelectedItem())),
                     Integer.parseInt((String) Objects.requireNonNull(vista.comboBoxMinutoFin.getSelectedItem()))
             );
-            manejoPrincipal.getManejoJornada().agregarJornada(vista.txtNombre.getText(),horaInicio,horaFin);
-            JOptionPane.showMessageDialog(vista, "Jornada agregada");
+            if(!manejoPrincipal.getVerificacion().esHoraMayor(horaInicio,horaFin)){
+                JOptionPane.showMessageDialog(null, Verificacion.mensajeERROR);
+            }
+            else if(!manejoPrincipal.getVerificacion().validarLetras(vista.txtNombre.getText())){
+                JOptionPane.showMessageDialog(null, Verificacion.mensajeERROR);
+            }
+            else{
+                manejoPrincipal.getManejoJornada().agregarJornada(vista.txtNombre.getText(),horaInicio,horaFin);
+                JOptionPane.showMessageDialog(vista, "Jornada agregada");
+            }
         }
     }
 }

@@ -21,4 +21,6 @@ public class registroUsuario extends JFrame{
     public JComboBox<Integer> dayComboBox;
     public JComboBox<String> monthComboBox;
     public JComboBox<Integer> yearComboBox;
+    public JLabel foto;
+    public JButton escogerFotoButton;
 }
