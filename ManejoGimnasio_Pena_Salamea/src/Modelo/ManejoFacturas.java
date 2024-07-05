@@ -1,5 +1,8 @@
 package Modelo;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,6 +36,7 @@ public class ManejoFacturas implements Serializable {
         }
         detallesSinAsignar.clear();
         this.precioFinal=0;
+        guardarFacturaEnArchivo(factura);
     }
     public void agregarDetalle(double precio,int cantidad,String codigoActividad){
         Detalle detalle=new Detalle(precio,cantidad,codigoActividad);
@@ -65,5 +69,53 @@ public class ManejoFacturas implements Serializable {
             System.out.println();
         }
     }
+    public String verificarDisponibilidadActividades() {
+        ManejoActividad manejoActividad = ManejoActividad.getInstancia();
+        StringBuilder actividadesSinCupo = new StringBuilder();
 
+        for (Detalle detalle : detallesSinAsignar) {
+            Actividad actividad = manejoActividad.buscarActividad(detalle.getCodigoActividades());
+            if (actividad == null || actividad.getDisponible() <= 0) {
+                if (!actividadesSinCupo.isEmpty()) {
+                    actividadesSinCupo.append("\n ");
+                }
+                actividadesSinCupo.append(detalle.getCodigoActividades());
+            }
+        }
+
+        if (actividadesSinCupo.isEmpty()) {
+            return "correcto";
+        } else {
+            return "Las siguientes actividades no tienen cupo: " + actividadesSinCupo.toString();
+        }
+    }
+    public void reducirDisponibilidadActividades() {
+        ManejoActividad manejoActividad = ManejoActividad.getInstancia();
+        for (Detalle detalle : detallesSinAsignar) {
+            manejoActividad.reducirDisponibilidad(detalle.getCodigoActividades());
+        }
+    }
+    private void guardarFacturaEnArchivo(Factura factura) {
+        File directorio = new File("facturas");
+        if (!directorio.exists()) {
+            directorio.mkdir();
+        }
+
+        String nombreArchivo = "facturas/" + factura.getCodigo() + ".txt";
+        try (FileWriter writer = new FileWriter(nombreArchivo)) {
+            writer.write("Código de la Factura: " + factura.getCodigo() + "\n");
+            writer.write("Nombre: " + factura.getNombre() + "\n");
+            writer.write("Fecha de Facturación: " + factura.getFechaFacturacion() + "\n");
+            writer.write("Cédula del Usuario: " + factura.getCedulaUsuario() + "\n");
+            writer.write("Precio Final: " + factura.getPrecioFinal() + "\n");
+            writer.write("Detalles:\n");
+            for (Detalle detalle : factura.getDetalles()) {
+                writer.write("    Código de la Clase: " + detalle.getCodigoActividades() + "\n");
+                writer.write("    Cantidad: " + detalle.getCantidad() + "\n");
+                writer.write("    Precio Unitario: " + detalle.getPrecio() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

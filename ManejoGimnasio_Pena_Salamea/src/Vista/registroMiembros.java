@@ -2,7 +2,7 @@ package Vista;
 
 import javax.swing.*;
 
-public class registroUsuario extends JFrame{
+public class registroMiembros extends JFrame{
     public JPanel principalRegistroUsuario;
     public JTextField txtNombres;
     public JLabel tituloRegistrarse;

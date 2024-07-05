@@ -8,4 +8,6 @@ public class buscarActividad {
     private JButton buscarButton;
     private JButton editarButton;
     private JTable table1;
+    private JComboBox comboBox1;
+    private JComboBox comboBoxCampoBusqueda;
 }

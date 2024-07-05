@@ -150,6 +150,9 @@ public class ControlPrincipal implements ActionListener {
             }
         }
         if(e.getSource()==vista.btnSegunUsuario3){
+            if(logeado instanceof Personal){
+                ControlBusquedaMiembros controlBusquedaMiembros=new ControlBusquedaMiembros();
+            }
             if(logeado instanceof Propietario){
                 ControlListarPersonal controlListarPersonal=new ControlListarPersonal();
                 controlListarPersonal.actualizarTablaPersonal();
@@ -169,6 +172,16 @@ public class ControlPrincipal implements ActionListener {
             if(logeado instanceof Propietario){
                 ControlListarFacturas controlListarFacturas=new ControlListarFacturas();
                 controlListarFacturas.actualizarTablaFacturas();
+            }
+        }
+        if(e.getSource()==vista.btnSegunUsuario7){
+            if(logeado instanceof Propietario){
+                ControlBusquedaPersonal controlBusquedaPersonal=new ControlBusquedaPersonal();
+            }
+        }
+        if(e.getSource()==vista.btnSegunUsuario8){
+            if(logeado instanceof Propietario){
+                ControlBusquedaGimnasio controlBusquedaGimnasio=new ControlBusquedaGimnasio();
             }
         }
         if(e.getSource()==vista.btnFacturar){

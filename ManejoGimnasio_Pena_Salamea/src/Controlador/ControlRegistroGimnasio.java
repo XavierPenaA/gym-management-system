@@ -28,7 +28,8 @@ public class ControlRegistroGimnasio implements ActionListener {
         vista.btnRegistrarGimnasio.addActionListener(this);
         vista.btnAgregar.addActionListener(this);
         vista.agregarEquiposButton.addActionListener(this);
-        modeloTablaEquipos = new DefaultTableModel(new String[]{"Codigo", "Descripcion", "Estado"}, 0) {
+        modeloTablaEquipos = new DefaultTableModel(new String[]{"Codigo", "Descripcion", "Estado"},
+                0) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -102,14 +103,15 @@ public class ControlRegistroGimnasio implements ActionListener {
             if(manejoPrincipal.getManejoGimnasio().equiposSinAsignar.isEmpty()){
                 JOptionPane.showMessageDialog(null,"Ingrese equipos para la ubicación");
             }
-            else if (vista.txtCodigo.getText()!=null){
+            else if (vista.txtCodigo.getText()==null){
                 JOptionPane.showMessageDialog(null,"Ingrese un código");
             }
             else if(!manejoPrincipal.getVerificacion().validarLetras(vista.txtNombre.getText())){
                 JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
             }
             else{
-                manejoPrincipal.getManejoGimnasio().agregarUbicaciones(vista.txtCodigo.getText(),vista.txtNombre.getText());
+                manejoPrincipal.getManejoGimnasio().agregarUbicaciones(vista.txtCodigo.getText(),
+                        vista.txtNombre.getText());
                 actualizarTablaUbicaciones();
                 actualizarTablaEquipos();
             }
@@ -132,7 +134,8 @@ public class ControlRegistroGimnasio implements ActionListener {
             }
             else{
                 horario=new Horario(horaInicio,horaFin);
-                manejoPrincipal.getManejoGimnasio().agregarGimnasio(vista.txtNombreGim.getText(),vista.txtDireccionGim.getText(),
+                manejoPrincipal.getManejoGimnasio().agregarGimnasio(vista.txtNombreGim.getText(),
+                        vista.txtDireccionGim.getText(),
                         vista.txtTelefonoGim.getText(),horario);
                 actualizarTablaUbicaciones();
                 actualizarTablaEquipos();

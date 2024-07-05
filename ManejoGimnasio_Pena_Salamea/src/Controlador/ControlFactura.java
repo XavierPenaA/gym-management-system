@@ -107,7 +107,17 @@ public class ControlFactura implements ActionListener {
             actualizarTablaDetalles();
         }
         if(e.getSource()==vista.btnGuardar){
-            if(facturado!=null && Double.parseDouble(vista.ponerPrecioFinal.getText())!=0){
+            if(facturado!=null){
+                JOptionPane.showMessageDialog(null, "Usuario No Seleccionado");
+            }
+            else if (Double.parseDouble(vista.ponerPrecioFinal.getText())==0) {
+                JOptionPane.showMessageDialog(null, "Detalle No Agregado");
+            }
+            if(!manejoPrincipal.getManejoFacturas().verificarDisponibilidadActividades().equals("correcto")){
+                JOptionPane.showMessageDialog(null,manejoPrincipal.getManejoFacturas().verificarDisponibilidadActividades());
+            }
+            else{
+                manejoPrincipal.getManejoFacturas().reducirDisponibilidadActividades();
                 manejoPrincipal.getManejoFacturas().agregarFactura(vista.txtNombre.getText(), LocalDate.now(),vista.txtCedulaUsuario.getText(), Double.parseDouble(vista.ponerPrecioFinal.getText()));
                 JOptionPane.showMessageDialog(null, "Factura creada correctamente");
                 manejoPrincipal.getManejoFacturas().imprimirFacturas();
@@ -115,13 +125,6 @@ public class ControlFactura implements ActionListener {
                 actualizarDatos();
                 actualizarTablaDetalles();
             }
-            else{
-                if(Double.parseDouble(vista.ponerPrecioFinal.getText())==0){
-                    JOptionPane.showMessageDialog(null, "Detalle No Agregado");
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Usuario No Seleccionado");
-                }
 
             }
         }
