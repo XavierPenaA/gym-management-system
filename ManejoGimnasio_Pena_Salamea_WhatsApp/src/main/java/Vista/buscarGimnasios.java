@@ -21,4 +21,12 @@ public class buscarGimnasios extends JFrame {
     public JComboBox <String>  comboBoxMateriales;
     public JButton agregarMaterialButton;
     public JButton editarMaterialButton;
+    public JButton eliminarUbicacionSeleccionadaButton;
+    public JButton eliminarEquipoSeleccionadoButton;
+    public JButton eliminarMaterialSeleccionadoButton;
+    public JButton eliminarGimnasioSeleccionadoButton;
+    public JButton mostrarHistorialDeMantenimientoButton;
+    public JButton mostrarHistorialDeMantenimientoEquipoButton;
+    public JTable tableHistorialEquipo;
+    public JTable tableMantenimientoMaterial;
 }

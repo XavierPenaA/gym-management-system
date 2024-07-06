@@ -53,6 +53,9 @@ public class ControlRegistroPersonal implements ActionListener {
             else if(!manejoPrincipal.getVerificacion().validarLetras(vista.txtRol.getText())){
                 JOptionPane.showMessageDialog(null, Verificacion.mensajeERROR);
             }
+            else if(vista.cmbJornada.getSelectedItem()==null){
+                JOptionPane.showMessageDialog(null,"Debe seleccionar una jornada");
+            }
             else{
                 String fotoRuta = copiarFoto();
                 manejoPrincipal.getManejoPersonal().registrarPersonal(vista.txtCedula.getText(),vista.txtNombres.getText(),

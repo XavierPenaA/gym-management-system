@@ -9,12 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ControlBusquedaPersonal implements ActionListener {
+public class ControlBuscarPersonal implements ActionListener {
     buscarPersonas vista;
     ManejoPrincipal manejoPrincipal;
     ArrayList<Personal> personalEncontrados;
     DefaultTableModel modeloTabla;
-    public ControlBusquedaPersonal(){
+    public ControlBuscarPersonal(){
         manejoPrincipal = ManejoPrincipal.getInstancia();
         personalEncontrados = new ArrayList<>();
         vista = new buscarPersonas();
@@ -26,7 +26,6 @@ public class ControlBusquedaPersonal implements ActionListener {
         vista.comboBoxMes.setVisible(false);
         vista.buscarButton.addActionListener(this);
         vista.editarButton.addActionListener(this);
-        vista.verFacturasButton.addActionListener(this);
         actualizarComboBox();
         modeloTabla = new DefaultTableModel(new String[]{"Cedula","Nombres", "Apellidos","Direccion",
                 "Telefono","Rol","Jornada"}, 0) {
@@ -42,7 +41,7 @@ public class ControlBusquedaPersonal implements ActionListener {
         Object[] nombresColumnas = {"Cedula","Nombres", "Apellidos","Direccion","Telefono","Rol","Jornada"};
         modeloTabla.addRow(nombresColumnas);
         if (!personalEncontrados.isEmpty()) {
-            for (int i = 0; i < manejoPrincipal.getManejoMiembros().miembros.size(); i++) {
+            for (int i = 0; i < personalEncontrados.size(); i++) {
                 Object[] rowData = {
                         personalEncontrados.get(i).getCedula(),
                         personalEncontrados.get(i).getNombres(),
@@ -89,7 +88,14 @@ public class ControlBusquedaPersonal implements ActionListener {
             }
         }
         if(e.getSource()==vista.editarButton){
-
+            ControlEditarPersonal controlEditarPersonal=new ControlEditarPersonal(
+                    manejoPrincipal.getManejoPersonal().buscarPersonalPorCedula((String)
+                            vista.comboBoxUsuario.getSelectedItem()));
+        }
+        if(e.getSource()==vista.eliminarSeleccionadoButton){
+            manejoPrincipal.getManejoPersonal().personal.remove(manejoPrincipal.getManejoPersonal().
+                    buscarPersonalPorCedula((String)
+                    vista.comboBoxUsuario.getSelectedItem()));
         }
     }
 }

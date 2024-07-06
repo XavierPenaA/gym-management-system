@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class ControlFactura implements ActionListener {
     factura vista;
@@ -27,6 +28,7 @@ public class ControlFactura implements ActionListener {
         vista.agregarDetalleButton.addActionListener(this);
         vista.reservarButton.addActionListener(this);
         vista.btnGuardar.addActionListener(this);
+        vista.pagarUnaReservaButton.addActionListener(this);
         vista.comboBoxActividades.addActionListener(this);
         if(manejoPrincipal.getManejoFacturas().facturas.isEmpty()){
             vista.txtCodigo.setText("1");
@@ -64,6 +66,7 @@ public class ControlFactura implements ActionListener {
     }
     public void actualizarComboBox() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        model.addElement("Agregar Meses");
         for (Actividad actividad : manejoPrincipal.getManejoActividad().actividades) {
             model.addElement(actividad.getNombre());
         }
@@ -89,8 +92,13 @@ public class ControlFactura implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.comboBoxActividades){
-            Actividad actividadFacturando=manejoPrincipal.getManejoActividad().buscarActividad((String) vista.comboBoxActividades.getSelectedItem());
-            vista.txtPrecio.setText(String.valueOf(actividadFacturando.getPrecio()));
+            if(Objects.equals(vista.comboBoxActividades.getSelectedItem(), "Agregar Meses")){
+                vista.txtPrecio.setText(String.valueOf(30));
+            }
+            else{
+                Actividad actividadFacturando=manejoPrincipal.getManejoActividad().buscarActividad((String) vista.comboBoxActividades.getSelectedItem());
+                vista.txtPrecio.setText(String.valueOf(actividadFacturando.getPrecio()));
+            }
         }
         if(e.getSource()==vista.buscarUsuarioButton){
             facturado=manejoPrincipal.getManejoMiembros().buscarMiembro(vista.txtCedula.getText());
@@ -116,7 +124,6 @@ public class ControlFactura implements ActionListener {
             if (!manejoPrincipal.getManejoFacturas().verificarDisponibilidadActividades().equals("correcto")) {
                 JOptionPane.showMessageDialog(null, manejoPrincipal.getManejoFacturas().verificarDisponibilidadActividades());
             } else {
-                manejoPrincipal.getManejoFacturas().reducirDisponibilidadActividades();
                 manejoPrincipal.getManejoFacturas().agregarFactura(vista.txtNombre.getText(), LocalDate.now(), vista.txtCedulaUsuario.getText(), Double.parseDouble(vista.ponerPrecioFinal.getText()));
                 JOptionPane.showMessageDialog(null, "Factura creada correctamente");
                 manejoPrincipal.getManejoFacturas().imprimirFacturas();
@@ -134,7 +141,6 @@ public class ControlFactura implements ActionListener {
             if (!manejoPrincipal.getManejoFacturas().verificarDisponibilidadActividades().equals("correcto")) {
                 JOptionPane.showMessageDialog(null, manejoPrincipal.getManejoFacturas().verificarDisponibilidadActividades());
             } else {
-                manejoPrincipal.getManejoFacturas().reducirDisponibilidadActividades();
                 manejoPrincipal.getManejoFacturas().reservarFactura(vista.txtNombre.getText(), LocalDate.now(), vista.txtCedulaUsuario.getText(), Double.parseDouble(vista.ponerPrecioFinal.getText()));
                 JOptionPane.showMessageDialog(null, "Factura Reservada correctamente");
                 manejoPrincipal.getManejoFacturas().imprimirFacturas();
@@ -142,6 +148,9 @@ public class ControlFactura implements ActionListener {
                 actualizarDatos();
                 actualizarTablaDetalles();
             }
+        }
+        if(e.getSource()==vista.pagarUnaReservaButton){
+            ControlPagarReserva controlPagarReserva= new ControlPagarReserva();
         }
     }
 }

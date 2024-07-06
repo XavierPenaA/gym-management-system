@@ -2,18 +2,18 @@ package Vista;
 
 import javax.swing.*;
 
-public class editarGimnasios {
-    private JPanel principalRegistrarGimnasio;
-    private JTextField txtNombreGim;
-    private JTextField txtDireccionGim;
-    private JTextField txtTelefonoGim;
-    private JPanel pnlHorario;
-    private JComboBox comboBoxHoraInicio;
-    private JComboBox comboBoxMinutoInicio;
-    private JComboBox comboBoxHoraFin;
-    private JComboBox comboBoxMinutoFin;
-    private JButton cambiarNombreButton;
-    private JButton cambiarDirecciónButton;
-    private JButton cambiarTelefonoButton;
-    private JButton combiarHorarioButton;
+public class editarGimnasios extends JFrame{
+    public JPanel principalEditarGimnasio;
+    public JTextField txtNombreGim;
+    public JTextField txtDireccionGim;
+    public JTextField txtTelefonoGim;
+    public JPanel pnlHorario;
+    public JComboBox comboBoxHoraInicio;
+    public JComboBox comboBoxMinutoInicio;
+    public JComboBox comboBoxHoraFin;
+    public JComboBox comboBoxMinutoFin;
+    public JButton cambiarNombreButton;
+    public JButton cambiarDireccionButton;
+    public JButton cambiarTelefonoButton;
+    public JButton cambiarHorarioButton;
 }

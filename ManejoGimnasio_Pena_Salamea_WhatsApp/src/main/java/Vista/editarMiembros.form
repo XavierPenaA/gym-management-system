@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="e3895" binding="principalRegistroUsuario" layout-manager="GridLayoutManager" row-count="12" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e3895" binding="principaleditarMiembros" layout-manager="GridLayoutManager" row-count="12" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -132,7 +132,7 @@
               <text value="Cambiar Nombre"/>
             </properties>
           </component>
-          <component id="7d956" class="javax.swing.JButton" default-binding="true">
+          <component id="7d956" class="javax.swing.JButton" binding="cambiarApellidosButton">
             <constraints>
               <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -140,7 +140,7 @@
               <text value="Cambiar Apellidos"/>
             </properties>
           </component>
-          <component id="820b0" class="javax.swing.JButton" default-binding="true">
+          <component id="820b0" class="javax.swing.JButton" binding="cambiarTelefonoButton">
             <constraints>
               <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -148,7 +148,7 @@
               <text value="Cambiar Telefono"/>
             </properties>
           </component>
-          <component id="17f32" class="javax.swing.JButton" default-binding="true">
+          <component id="17f32" class="javax.swing.JButton" binding="cambiarDireccionButton">
             <constraints>
               <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -156,7 +156,7 @@
               <text value="Cambiar Dirección"/>
             </properties>
           </component>
-          <component id="3d269" class="javax.swing.JButton" default-binding="true">
+          <component id="3d269" class="javax.swing.JButton" binding="cambiarFotoButton">
             <constraints>
               <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>

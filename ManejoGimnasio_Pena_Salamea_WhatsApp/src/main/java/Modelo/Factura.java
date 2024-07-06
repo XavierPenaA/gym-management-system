@@ -8,7 +8,7 @@ public class Factura implements Serializable {
     String nombre;
     LocalDate fechaFacturacion;
     String cedulaUsuario;
-    ArrayList<Detalle> detalles;
+    public ArrayList<Detalle> detalles;
     private static int codigoCounter = 0;
     private int codigo;
     double precioFinal;

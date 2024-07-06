@@ -29,6 +29,14 @@ public class ManejoPersonal implements Serializable {
         }
         return null;
     }
+    public Personal buscarPersonalPorCedula(String cedula) {
+        for (Personal personal : personal) {
+            if (personal.getCedula().equalsIgnoreCase(cedula)) {
+                return personal;
+            }
+        }
+        return null;
+    }
     public Personal buscarPersonalPorNombre(String nombreCompleto) {
         for (Personal personal : personal) {
             String nombrePersonal = personal.getNombres() + " " + personal.getApellidos();

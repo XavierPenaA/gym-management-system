@@ -22,4 +22,5 @@ public class factura extends JFrame{
     public JLabel ponerPrecioFinal;
     public JLabel txtCodigo;
     public JButton reservarButton;
+    public JButton pagarUnaReservaButton;
 }

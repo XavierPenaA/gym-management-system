@@ -18,12 +18,8 @@ public class WhatsAppManager implements Serializable {
 
         // Leer el contenido del archivo y enviarlo como parte del mensaje
         String contenidoArchivo = leerContenidoArchivo(rutaArchivo);
-        if (contenidoArchivo != null) {
-            String mensajeCompleto = mensaje + "\n\nContenido del archivo:\n" + contenidoArchivo;
+            String mensajeCompleto = mensaje + "\n\n" + contenidoArchivo;
             enviarMensajePorWhatsApp(numeroTelefono, mensajeCompleto);
-        } else {
-            System.out.println("Error: No se pudo leer el contenido del archivo.");
-        }
     }
 
     private String leerContenidoArchivo(String rutaArchivo) {
@@ -35,7 +31,7 @@ public class WhatsAppManager implements Serializable {
             }
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
-            return null;
+            contenido= new StringBuilder(" ");
         }
         return contenido.toString();
     }

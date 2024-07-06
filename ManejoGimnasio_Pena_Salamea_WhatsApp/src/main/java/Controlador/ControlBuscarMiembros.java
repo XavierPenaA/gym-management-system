@@ -7,14 +7,17 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class ControlBusquedaMiembros implements ActionListener {
+public class ControlBuscarMiembros implements ActionListener {
     buscarPersonas vista;
     ManejoPrincipal manejoPrincipal;
     ArrayList<Miembro> miembrosEncontrados;
     DefaultTableModel modeloTabla;
-    public ControlBusquedaMiembros(){
+    public ControlBuscarMiembros(){
         manejoPrincipal = ManejoPrincipal.getInstancia();
         miembrosEncontrados= new ArrayList<>();
         vista = new buscarPersonas();
@@ -107,7 +110,21 @@ public class ControlBusquedaMiembros implements ActionListener {
             }
         }
         if(e.getSource()==vista.editarButton){
-
+            ControlEditarMiembros controlEditarMiembros=new ControlEditarMiembros(manejoPrincipal.getManejoMiembros().buscarMiembro((String) vista.comboBoxUsuario.getSelectedItem()));
         }
+        if (e.getSource() == vista.eliminarSeleccionadoButton) {
+            Miembro miembroAEliminar = manejoPrincipal.getManejoMiembros().buscarMiembro((String) vista.comboBoxUsuario.getSelectedItem());
+            if (miembroAEliminar != null) {
+                String rutaFoto = miembroAEliminar.getRutaFoto();
+                File archivoFoto = new File(rutaFoto);
+                if (archivoFoto.exists()) {
+                    archivoFoto.delete();
+                }
+                manejoPrincipal.getManejoMiembros().miembros.remove(miembroAEliminar);
+                actualizarTablaMiembros();
+                actualizarComboBoxMimbros();
+            }
+        }
+    }
     }
 }

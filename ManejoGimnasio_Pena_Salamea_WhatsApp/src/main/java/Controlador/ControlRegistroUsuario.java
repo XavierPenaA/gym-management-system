@@ -63,8 +63,9 @@ public class ControlRegistroUsuario implements ActionListener {
             }
             else if(!manejoPrincipal.getVerificacion().esFechaMayor(LocalDate.now(),date)){
                 JOptionPane.showMessageDialog(null, "La fecha de membresía debe ser mayor a la fecha actual");
-            }
-            else{
+            } else if (!manejoPrincipal.verificarCedulaNoRegistrada(vista.txtCedula.getText())) {
+                JOptionPane.showMessageDialog(null,"Usuario ya registrado");
+            } else{
                 String fotoRuta = copiarFoto();
                 manejoPrincipal.getManejoMiembros().registrarMiembro(vista.txtCedula.getText(),vista.txtNombres.getText(),
                         vista.txtApellidos.getText(), vista.txtDireccion.getText(),vista.txtTelefono.getText(),

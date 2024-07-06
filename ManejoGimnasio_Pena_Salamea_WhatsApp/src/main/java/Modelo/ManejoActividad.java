@@ -1,6 +1,10 @@
 package Modelo;
 
+import com.twilio.rest.api.v2010.account.incomingphonenumber.Local;
+
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ManejoActividad implements Serializable {
@@ -9,7 +13,9 @@ public class ManejoActividad implements Serializable {
 
     private ManejoActividad() {
         actividades = new ArrayList<>();
-        actividades.add(new Actividad("RegistroDeMeses","Agregar Meses","Meses de membresía",0,999999999,"",null,null,null,30,""));
+        LocalTime horaInicio = LocalTime.of(0, 0); // Medianoche
+        LocalTime horaFinal = LocalTime.of(23, 59);
+        Horario registroHorario=new Horario(horaInicio,horaFinal);
     }
 
     public static ManejoActividad getInstancia() {
@@ -49,8 +55,16 @@ public class ManejoActividad implements Serializable {
     }
     public void reducirDisponibilidad(String codigo) {
         Actividad actividad = buscarActividad(codigo);
-        if (actividad != null && actividad.getDisponible() > 0) {
-            actividad.setDisponible(actividad.getDisponible() - 1);
+
+        if (actividad == null) {
+            System.out.println("Error: Actividad no encontrada para el código: " + codigo);
+        } else {
+            if (actividad.getDisponible() > 0) {
+                actividad.setDisponible(actividad.getDisponible() - 1);
+                System.out.println("Disponibilidad reducida para la actividad con código: " + codigo);
+            } else {
+                System.out.println("No hay disponibilidad para reducir en la actividad con código: " + codigo);
+            }
         }
     }
 
@@ -69,5 +83,25 @@ public class ManejoActividad implements Serializable {
             System.out.println("Día: " + actividad.getDia());
             System.out.println();
         }
+    }
+    public ArrayList<Actividad> buscar(String criterio, String valor) {
+        ArrayList<Actividad> resultados = new ArrayList<>();
+        for (Actividad actividad : actividades) {
+            switch (criterio) {
+                case "Codigo":
+                    if (actividad.getCodigo().equalsIgnoreCase(valor)) {
+                        resultados.add(actividad);
+                    }
+                    break;
+                case "Nombre":
+                    if (actividad.getNombre().equalsIgnoreCase(valor)) {
+                        resultados.add(actividad);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return resultados;
     }
 }

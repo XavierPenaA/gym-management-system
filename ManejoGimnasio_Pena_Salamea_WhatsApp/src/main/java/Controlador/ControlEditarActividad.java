@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.*;
-import Vista.registrarActividad;
+import Vista.editarActividad;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,19 +10,27 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
-public class ControlRegistroActividad implements ActionListener {
-    registrarActividad vista;
+public class ControlEditarActividad implements ActionListener {
+    editarActividad vista;
     ManejoPrincipal manejoPrincipal;
-
-    public ControlRegistroActividad() {
-        vista = new registrarActividad();
+    int indexEditar;
+    public ControlEditarActividad(Actividad actividadAEditar) {
+        vista = new editarActividad();
         manejoPrincipal = ManejoPrincipal.getInstancia();
-        vista.add(vista.principalRegistrarClase);
+        indexEditar =manejoPrincipal.getManejoActividad().actividades.indexOf(actividadAEditar);;
+        vista.add(vista.panel);
         vista.setSize(800,800);
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
-        vista.btnRegistrarClase.addActionListener(this);
-        vista.actualizarUbicacionesButton.addActionListener(this);
+        vista.cambiarCodigoButton.addActionListener(this);
+        vista.cambiarCostoButton.addActionListener(this);
+        vista.cambiarDescripcionButton.addActionListener(this);
+        vista.cambiarCupoButton.addActionListener(this);
+        vista.cambiarEstadoButton.addActionListener(this);
+        vista.cambiarHorarioButton.addActionListener(this);
+        vista.cambiarInstructorButton.addActionListener(this);
+        vista.cambiarUbicacionButton.addActionListener(this);
+        vista.cambiarNombreButton.addActionListener(this);
         vista.comboBoxGimnasios.addActionListener(this);
     }
     public void actualizarComboBox(){
@@ -84,7 +92,67 @@ public class ControlRegistroActividad implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==vista.btnRegistrarClase){
+        if (e.getSource()==vista.cambiarNombreButton) {
+            if(!manejoPrincipal.getVerificacion().validarLetras(vista.txtNombreAct.getText())){
+                JOptionPane.showMessageDialog(null, "El nombre contiene caracteres no permitidos");
+            }
+            else{
+                manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setNombre(vista.txtNombreAct.getText());
+                JOptionPane.showMessageDialog(null,"Nombres Cambiados Correctamente");
+            }
+        }
+        if (e.getSource()==vista.cambiarDescripcionButton) {
+            if(vista.txtDescripcion.getText()==null){
+                JOptionPane.showMessageDialog(null,"Ingrese una Descripcion");
+            }
+            else {
+                manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setDescripcion(vista.txtDescripcion.getText());
+                JOptionPane.showMessageDialog(null,"Descripcion Cambiada Correctamente");
+            }
+        }
+        if (e.getSource()==vista.cambiarCupoButton) {
+            if(!manejoPrincipal.getVerificacion().validarNumero(vista.txtCupo.getText())){
+                JOptionPane.showMessageDialog(null,"Ingrese un cupo valido");
+            }
+            else{
+                manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setCupos(Integer.parseInt(vista.txtCupo.getText()));
+                JOptionPane.showMessageDialog(null,"Cupo Cambiado Correctamente");
+            }
+        }
+        if (e.getSource()==vista.cambiarCostoButton) {
+            if(!manejoPrincipal.getVerificacion().validarNumero(vista.txtCosto.getText())){
+                JOptionPane.showMessageDialog(null,"Ingrese un costo valido");
+            }
+            else{
+                manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setCupos(Integer.parseInt(vista.txtCosto.getText()));
+                JOptionPane.showMessageDialog(null,"Costo Cambiado Correctamente");
+            }
+        }
+        if (e.getSource()==vista.cambiarEstadoButton) {
+            manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setEstado((String) vista.cbmEstado.getSelectedItem());
+        }
+        if (e.getSource()==vista.cambiarCodigoButton) {
+            if(vista.textField1.getText()==null){
+                JOptionPane.showMessageDialog(null,"Ingrese un Codigo");
+            }
+            else {
+                manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setCodigo(vista.textField1.getText());
+                JOptionPane.showMessageDialog(null,"Codigo Cambiado Correctamente");
+            }
+        }
+        if(e.getSource()==vista.cambiarInstructorButton){
+            Personal instructor=
+                    manejoPrincipal.getManejoPersonal().buscarPersonalPorNombre((String) vista.cmbInstructor.getSelectedItem());
+            manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setInstructor(instructor);
+
+        }
+        if(e.getSource()==vista.cambiarUbicacionButton){
+            Ubicacion ubicacion=
+                    manejoPrincipal.getManejoGimnasio().buscarUbicacion((String) vista.comboBoxGimnasios.getSelectedItem(),
+                            (String) vista.comboBoxUbicaciones.getSelectedItem());
+            manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setUbicacion(ubicacion);
+        }
+        if(e.getSource()==vista.cambiarHorarioButton){
             int day = (int) vista.cmbDiaFechaInicio.getSelectedItem();
             int month = vista.cmbMesFechaInicio.getSelectedIndex() + 1;
             int year = (int) vista.cmbYearFechaInicio.getSelectedItem();
@@ -107,30 +175,13 @@ public class ControlRegistroActividad implements ActionListener {
             else if(!manejoPrincipal.getVerificacion().esHoraMayor(horaInicio,horaFin)){
                 JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
             }
-             else if(vista.txtCodigo.getText()==null){
-                JOptionPane.showMessageDialog(null,"Ingrese un código");
-            }
-            else if(!manejoPrincipal.getVerificacion().validarLetras(vista.txtNombreAct.getText())){
-                JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
-            }
-            else if(!manejoPrincipal.getVerificacion().validarNumero(vista.txtCupo.getText())){
-                JOptionPane.showMessageDialog(null,Verificacion.mensajeERROR);
-            }
             else{
                 Horario horario=new Horario(fechaInicio,fechaFin,horaInicio,horaFin);
-                Ubicacion ubicacion=
-                        manejoPrincipal.getManejoGimnasio().buscarUbicacion((String) vista.comboBoxGimnasios.getSelectedItem(),
-                                (String) vista.comboBoxUbicaciones.getSelectedItem());
-                Personal instructor=
-                        manejoPrincipal.getManejoPersonal().buscarPersonalPorNombre((String) vista.cmbInstructor.getSelectedItem());
-                manejoPrincipal.getManejoActividad().agregarActividad(vista.textFieldCodigo.getText(),vista.txtNombreAct.getText(),
-                        vista.txtDescripcion.getText(),Integer.parseInt(vista.txtCupo.getText()),
-                        Integer.parseInt(vista.txtCupo.getText()), (String) vista.cbmEstado.getSelectedItem(),horario,
-                        ubicacion,instructor,
-                        Double.parseDouble(vista.txtCosto.getText()),
-                        (String) vista.comboBoxDiasSemana.getSelectedItem());
-                manejoPrincipal.getManejoActividad().imprimirActividades();
+                manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setHorario(horario);
             }
+        }
+        if(e.getSource()==vista.cambiarDiaButton){
+            manejoPrincipal.getManejoActividad().actividades.get(indexEditar).setDia((String) vista.comboBoxDiasSemana.getSelectedItem());
 
         }
         if(e.getSource()==vista.comboBoxGimnasios){

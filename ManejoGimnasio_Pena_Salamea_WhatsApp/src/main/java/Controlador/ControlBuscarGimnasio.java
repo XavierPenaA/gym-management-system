@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ControlBusquedaGimnasio implements ActionListener {
+public class ControlBuscarGimnasio implements ActionListener {
     buscarGimnasios vista;
     ManejoPrincipal manejoPrincipal;
     ArrayList<Gimnasio> gimnasiosEncontrados;
@@ -21,7 +21,9 @@ public class ControlBusquedaGimnasio implements ActionListener {
     DefaultTableModel modeloTablaUbicaciones;
     DefaultTableModel modeloTablaEquipos;
     DefaultTableModel modeloTablaMateriales;
-    public ControlBusquedaGimnasio(){
+    DefaultTableModel modeloTablaHistorialEquipos;
+    DefaultTableModel modeloTablaHistorialMateriales;
+    public ControlBuscarGimnasio(){
         manejoPrincipal = ManejoPrincipal.getInstancia();
         gimnasiosEncontrados = new ArrayList<>();
         vista = new buscarGimnasios();
@@ -32,8 +34,13 @@ public class ControlBusquedaGimnasio implements ActionListener {
         vista.buscarButton.addActionListener(this);
         vista.agregarEquipoButton.addActionListener(this);
         vista.agregarUbicacionButton.addActionListener(this);
+        vista.agregarMaterialButton.addActionListener(this);
+        vista.editarMaterialButton.addActionListener(this);
+        vista.editarEquipoButton.addActionListener(this);
         vista.editarGimnasioSeleccionadoButton.addActionListener(this);
         vista.editarUbicacionSeleccionadaButton.addActionListener(this);
+        vista.mostrarHistorialDeMantenimientoButton.addActionListener(this);
+        vista.mostrarHistorialDeMantenimientoEquipoButton.addActionListener(this);
         vista.comboBoxEquipos.addActionListener(this);
         vista.comboBoxUbicacion.addActionListener(this);
         vista.comboBoxMateriales.addActionListener(this);
@@ -66,6 +73,20 @@ public class ControlBusquedaGimnasio implements ActionListener {
             }
         };
         vista.tableMateriales.setModel(modeloTablaMateriales);
+        modeloTablaHistorialEquipos= new DefaultTableModel(new String[]{"Fecha de Mantenimiento"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        vista.tableHistorialEquipo.setModel(modeloTablaHistorialEquipos);
+        modeloTablaHistorialMateriales= new DefaultTableModel(new String[]{"Fecha de Mantenimiento"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        vista.tableMantenimientoMaterial.setModel(modeloTablaHistorialMateriales);
     }
     public void actualizarTablaUbicaciones() {
         modeloTablaUbicaciones.setRowCount(0);
@@ -144,8 +165,8 @@ public class ControlBusquedaGimnasio implements ActionListener {
     }
     public void actualizarComboBoxEquipos() {
         vista.comboBoxEquipos.removeAllItems();
-        for (Equipos equipo : ubicacionSeleccionada.equipos) {
-            vista.comboBoxEquipos.addItem(equipo.getCodigo());
+        for (Equipos equips : ubicacionSeleccionada.equipos) {
+            vista.comboBoxEquipos.addItem(equips.getCodigo());
         }
     }
     public void actualizarComboBoxMateriales() {
@@ -161,7 +182,7 @@ public class ControlBusquedaGimnasio implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Debe ingresar el valor a buscar");
             }
             else{
-                gimnasiosEncontrados =manejoPrincipal.getManejoGimnasio().buscar(vista.ingresoBuscar.getText());
+                gimnasiosEncontrados=manejoPrincipal.getManejoGimnasio().buscar(vista.ingresoBuscar.getText());
                 actualizarTablaGimnasios();
                 actualizarComboBoxGimnasios();
                 gimnasioSeleccionado=manejoPrincipal.getManejoGimnasio().buscarGimnasio((String) vista.comboBoxGimnasio.getSelectedItem());
@@ -205,6 +226,73 @@ public class ControlBusquedaGimnasio implements ActionListener {
         }
         if (e.getSource() == vista.comboBoxMateriales) {
             materialSeleccionado=manejoPrincipal.getManejoGimnasio().buscarMaterial(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(),equipoSeleccionado.getCodigo(), (String) vista.comboBoxMateriales.getSelectedItem());
+        }
+        if(e.getSource()==vista.editarGimnasioSeleccionadoButton){
+            ControlEditarGimnasio controlEditarGimnasio=new ControlEditarGimnasio(manejoPrincipal.getManejoGimnasio().buscarGimnasio((String) vista.comboBoxGimnasio.getSelectedItem()));
+        }
+        if(e.getSource()==vista.editarUbicacionSeleccionadaButton){
+            gimnasioSeleccionado=manejoPrincipal.getManejoGimnasio().buscarGimnasio((String) vista.comboBoxGimnasio.getSelectedItem());
+            ubicacionSeleccionada=manejoPrincipal.getManejoGimnasio().buscarUbicacion(gimnasioSeleccionado.getNombre(), (String) vista.comboBoxUbicacion.getSelectedItem());
+            ControlEditarUbicacion controlEditarUbicacion=new ControlEditarUbicacion(gimnasioSeleccionado,ubicacionSeleccionada);
+        }
+        if(e.getSource()==vista.editarEquipoButton){
+
+        }
+        if(e.getSource()==vista.editarMaterialButton){
+
+        }
+        if(e.getSource()==vista.eliminarGimnasioSeleccionadoButton){
+            gimnasioSeleccionado=manejoPrincipal.getManejoGimnasio().buscarGimnasio((String) vista.comboBoxGimnasio.getSelectedItem());
+            manejoPrincipal.getManejoGimnasio().gimnasios.remove(gimnasioSeleccionado);
+            actualizarTablaUbicaciones();
+            actualizarComboBoxUbicaciones();
+            ubicacionSeleccionada=manejoPrincipal.getManejoGimnasio().buscarUbicacion(gimnasioSeleccionado.getNombre(), (String) vista.comboBoxUbicacion.getSelectedItem());
+            actualizarTablaEquipos();
+            actualizarComboBoxEquipos();
+            equipoSeleccionado=manejoPrincipal.getManejoGimnasio().buscarEquipo(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(), (String) vista.comboBoxEquipos.getSelectedItem());
+            actualizarTablaMateriales();
+            actualizarComboBoxMateriales();
+            materialSeleccionado=manejoPrincipal.getManejoGimnasio().buscarMaterial(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(),equipoSeleccionado.getCodigo(), (String) vista.comboBoxMateriales.getSelectedItem());
+        }
+        if(e.getSource()==vista.eliminarUbicacionSeleccionadaButton){
+            gimnasioSeleccionado=manejoPrincipal.getManejoGimnasio().buscarGimnasio((String) vista.comboBoxGimnasio.getSelectedItem());
+            ubicacionSeleccionada=manejoPrincipal.getManejoGimnasio().buscarUbicacion(gimnasioSeleccionado.getNombre(), (String) vista.comboBoxUbicacion.getSelectedItem());
+            manejoPrincipal.getManejoGimnasio().gimnasios.get(manejoPrincipal.getManejoGimnasio().
+                    gimnasios.indexOf(gimnasioSeleccionado)).ubicaciones.remove(ubicacionSeleccionada);
+            actualizarTablaEquipos();
+            actualizarComboBoxEquipos();
+            equipoSeleccionado=manejoPrincipal.getManejoGimnasio().buscarEquipo(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(), (String) vista.comboBoxEquipos.getSelectedItem());
+            actualizarTablaMateriales();
+            actualizarComboBoxMateriales();
+            materialSeleccionado=manejoPrincipal.getManejoGimnasio().buscarMaterial(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(),equipoSeleccionado.getCodigo(), (String) vista.comboBoxMateriales.getSelectedItem());
+        }
+        if(e.getSource()==vista.eliminarEquipoSeleccionadoButton){
+            gimnasioSeleccionado=manejoPrincipal.getManejoGimnasio().buscarGimnasio((String) vista.comboBoxGimnasio.getSelectedItem());
+            ubicacionSeleccionada=manejoPrincipal.getManejoGimnasio().buscarUbicacion(gimnasioSeleccionado.getNombre(), (String) vista.comboBoxUbicacion.getSelectedItem());
+            equipoSeleccionado=manejoPrincipal.getManejoGimnasio().buscarEquipo(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(), (String) vista.comboBoxEquipos.getSelectedItem());
+            manejoPrincipal.getManejoGimnasio().gimnasios.get(manejoPrincipal.getManejoGimnasio().
+                    gimnasios.indexOf(gimnasioSeleccionado)).ubicaciones.
+                    get(manejoPrincipal.getManejoGimnasio().gimnasios.get(manejoPrincipal.getManejoGimnasio().
+                            gimnasios.indexOf(gimnasioSeleccionado)).ubicaciones.indexOf(ubicacionSeleccionada)).
+                    equipos.remove(equipoSeleccionado);
+            actualizarTablaMateriales();
+            actualizarComboBoxMateriales();
+            materialSeleccionado=manejoPrincipal.getManejoGimnasio().buscarMaterial(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(),equipoSeleccionado.getCodigo(), (String) vista.comboBoxMateriales.getSelectedItem());
+        }
+        if(e.getSource()==vista.eliminarMaterialSeleccionadoButton){
+            gimnasioSeleccionado=manejoPrincipal.getManejoGimnasio().buscarGimnasio((String) vista.comboBoxGimnasio.getSelectedItem());
+            ubicacionSeleccionada=manejoPrincipal.getManejoGimnasio().buscarUbicacion(gimnasioSeleccionado.getNombre(), (String) vista.comboBoxUbicacion.getSelectedItem());
+            equipoSeleccionado=manejoPrincipal.getManejoGimnasio().buscarEquipo(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(), (String) vista.comboBoxEquipos.getSelectedItem());
+            materialSeleccionado=manejoPrincipal.getManejoGimnasio().buscarMaterial(gimnasioSeleccionado.getNombre(),ubicacionSeleccionada.getNombre(),equipoSeleccionado.getCodigo(), (String) vista.comboBoxMateriales.getSelectedItem());
+            manejoPrincipal.getManejoGimnasio().gimnasios.get(manejoPrincipal.getManejoGimnasio().
+                            gimnasios.indexOf(gimnasioSeleccionado)).ubicaciones.
+                    get(manejoPrincipal.getManejoGimnasio().gimnasios.get(manejoPrincipal.getManejoGimnasio().
+                            gimnasios.indexOf(gimnasioSeleccionado)).ubicaciones.indexOf(ubicacionSeleccionada)).
+                    equipos.get( manejoPrincipal.getManejoGimnasio().gimnasios.get(manejoPrincipal.getManejoGimnasio().
+                                    gimnasios.indexOf(gimnasioSeleccionado)).ubicaciones.
+                            get(manejoPrincipal.getManejoGimnasio().gimnasios.get(manejoPrincipal.getManejoGimnasio().
+                                    gimnasios.indexOf(gimnasioSeleccionado)).ubicaciones.indexOf(ubicacionSeleccionada)).
+                            equipos.indexOf(equipoSeleccionado)).materiales.remove(materialSeleccionado);
         }
     }
 }

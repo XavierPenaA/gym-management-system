@@ -12,11 +12,11 @@ public class ControlPrincipal implements ActionListener {
     public ventanaPrincipal vista;
     ManejoPrincipal manejoPrincipal;
     public Persona logeado=null;
-    public ControlPrincipal(){
+    public ControlPrincipal() {
         vista = new ventanaPrincipal();
         manejoPrincipal = ManejoPrincipal.getInstancia();
         vista.add(vista.principal);
-        vista.setSize(800,600);
+        vista.setSize(800, 600);
         vista.setLocationRelativeTo(null);
         vista.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         vista.setVisible(true);
@@ -32,8 +32,8 @@ public class ControlPrincipal implements ActionListener {
         vista.btnSegunUsuario6.addActionListener(this);
         vista.btnSegunUsuario7.addActionListener(this);
         vista.btnSegunUsuario8.addActionListener(this);
-
         manejoPrincipal.cargarDatos("datos.dat");
+        manejoPrincipal.verificarFechasMembresia();
         definirUsuarioLogeado();
     }
     public void guardarDatosAlCerrar() {
@@ -83,6 +83,7 @@ public class ControlPrincipal implements ActionListener {
                 vista.btnSegunUsuario5.setText("Buscar/Editar Actividad");
                 vista.btnRegistrarse.setVisible(true);
                 vista.btnSegunUsuario.setVisible(true);
+                vista.btnSegunUsuario5.setVisible(true);
             }
             else if (logeado instanceof Propietario) {
                 vista.txtRolUsuario.setText("Dueño");
@@ -97,6 +98,8 @@ public class ControlPrincipal implements ActionListener {
                 vista.btnSegunUsuario7.setText("Buscar/Editar Personal");
                 vista.btnSegunUsuario8.setText("Buscar/Editar Gimnasio");
                 vista.btnRegistrarse.setVisible(true);
+                vista.btnSegunUsuario.setVisible(true);
+                vista.btnSegunUsuario5.setVisible(true);
                 vista.btnSegunUsuario6.setVisible(true);
                 vista.btnSegunUsuario7.setVisible(true);
                 vista.btnSegunUsuario8.setVisible(true);
@@ -149,7 +152,7 @@ public class ControlPrincipal implements ActionListener {
         }
         if(e.getSource()==vista.btnSegunUsuario3){
             if(logeado instanceof Personal){
-                ControlBusquedaMiembros controlBusquedaMiembros=new ControlBusquedaMiembros();
+                ControlBuscarMiembros controlBusquedaMiembros=new ControlBuscarMiembros();
             }
             if(logeado instanceof Propietario){
                 ControlListarPersonal controlListarPersonal=new ControlListarPersonal();
@@ -167,19 +170,27 @@ public class ControlPrincipal implements ActionListener {
             }
         }
         if(e.getSource()==vista.btnSegunUsuario5){
+            if(logeado instanceof Personal){
+                ControlBuscarActividad controlBuscarActividad = new ControlBuscarActividad();
+            }
             if(logeado instanceof Propietario){
                 ControlListarFacturas controlListarFacturas=new ControlListarFacturas();
                 controlListarFacturas.actualizarTablaFacturas();
             }
         }
+        if(e.getSource()==vista.btnSegunUsuario6){
+            if(logeado instanceof Propietario){
+                ControlBuscarFactura controlBuscarFactura=new ControlBuscarFactura();
+            }
+        }
         if(e.getSource()==vista.btnSegunUsuario7){
             if(logeado instanceof Propietario){
-                ControlBusquedaPersonal controlBusquedaPersonal=new ControlBusquedaPersonal();
+                ControlBuscarPersonal controlBusquedaPersonal=new ControlBuscarPersonal();
             }
         }
         if(e.getSource()==vista.btnSegunUsuario8){
             if(logeado instanceof Propietario){
-                ControlBusquedaGimnasio controlBusquedaGimnasio=new ControlBusquedaGimnasio();
+                ControlBuscarGimnasio controlBusquedaGimnasio=new ControlBuscarGimnasio();
             }
         }
         if(e.getSource()==vista.btnFacturar){

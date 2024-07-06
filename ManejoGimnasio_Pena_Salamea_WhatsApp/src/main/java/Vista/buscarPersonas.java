@@ -13,4 +13,5 @@ public class buscarPersonas extends JFrame{
     public JComboBox <Integer> comboBoxYear;
     public JButton verFacturasButton;
     public JTable tableEcontrados;
+    public JButton eliminarSeleccionadoButton;
 }

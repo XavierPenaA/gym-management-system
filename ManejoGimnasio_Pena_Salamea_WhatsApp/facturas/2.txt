@@ -1,9 +1,0 @@
-Código de la Factura: 2
-Nombre: Prueba 2 yo
-Fecha de Facturación: 2024-07-05
-Cédula del Usuario: 0150097954
-Precio Final: 120.0
-Detalles:
-    Código de la Clase: Agregar Meses
-    Cantidad: 4
-    Precio Unitario: 30.0

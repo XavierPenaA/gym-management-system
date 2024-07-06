@@ -24,7 +24,7 @@ public class registrarActividad extends JFrame{
     public JComboBox<String> comboBoxMinutoInicio;
     public JComboBox<String> comboBoxHoraFin;
     public JComboBox<String> comboBoxMinutoFin;
-    public JTextField textField1;
+    public JTextField textFieldCodigo;
     public JLabel txtCodigo;
     public JComboBox<String> comboBoxDiasSemana;
     public JComboBox<String> comboBoxGimnasios;

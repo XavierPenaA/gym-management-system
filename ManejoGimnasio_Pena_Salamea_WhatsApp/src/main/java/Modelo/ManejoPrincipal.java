@@ -1,6 +1,9 @@
 package Modelo;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 public class ManejoPrincipal implements Serializable{
     private ManejoMiembros manejoMiembros;
@@ -12,6 +15,7 @@ public class ManejoPrincipal implements Serializable{
     private Verificacion verificacion;
     private static ManejoPrincipal instancia;
     Propietario duenio= new Propietario("0150097954","Xavier","Peña","Av. Don Bosco","0962833533","prueba1234","20191712561","imagenes/propietario.jpg");
+    private WhatsAppManager whatsappManager = new WhatsAppManager();
     private ManejoPrincipal() {
         manejoMiembros = ManejoMiembros.getInstancia();
         manejoPersonal = ManejoPersonal.getInstancia();
@@ -90,4 +94,26 @@ public class ManejoPrincipal implements Serializable{
             System.err.println("Error al cargar los datos: " + e.getMessage());
         }
     }
+    public boolean verificarCedulaNoRegistrada(String cedula) {
+        if (duenio.getCedula().equals(cedula)) {
+            return false;
+        }
+        if (manejoMiembros.buscarMiembro(cedula) != null) {
+            return false;
+        }
+        return manejoPersonal.buscarPersonalPorCedula(cedula) == null;
+    }
+    public void verificarFechasMembresia() {
+        LocalDate today = LocalDate.now();
+            for (Miembro miembro : getManejoMiembros().miembros) {
+                LocalDate fechaFin = miembro.getFechaFin();
+                long daysBetween = ChronoUnit.DAYS.between(today, fechaFin);
+                System.out.println(daysBetween);
+                if (daysBetween <= 0) {
+                    whatsappManager.enviarMensajeConContenido("+593"+miembro.getTelefono().substring(1), "Su membresía ha caducado.","");
+                } else if (daysBetween <= 30) {
+                    whatsappManager.enviarMensajeConContenido("+593"+miembro.getTelefono().substring(1), "Su membresía va a caducar en " + daysBetween + " días.","");
+                }
+            }
+        }
 }

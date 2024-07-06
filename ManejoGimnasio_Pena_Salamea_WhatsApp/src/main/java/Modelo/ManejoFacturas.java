@@ -31,6 +31,7 @@ public class ManejoFacturas implements Serializable {
         return instancia;
     }
     public void pagarReserva(Factura facturaAPagar){
+        facturas.add(facturaAPagar);
         manejoMiembros.agregarFactura(facturaAPagar.cedulaUsuario, facturaAPagar.nombre);
         for (Detalle detalle : facturaAPagar.detalles) {
             manejoMiembros.agregarOModificarActividadAMiembro(facturaAPagar.cedulaUsuario, detalle.getCodigoActividades(), detalle.getCantidad());
@@ -51,7 +52,6 @@ public class ManejoFacturas implements Serializable {
         Factura factura = new Factura(nombre, fechaFacturacion, detallesSinAsignar, cedula, precioFinal);
         facturas.add(factura);
         manejoMiembros.agregarFactura(cedula, nombre);
-
         for (Detalle detalle : factura.detalles) {
                 manejoMiembros.agregarOModificarActividadAMiembro(cedula, detalle.getCodigoActividades(), detalle.getCantidad());
         }
@@ -67,9 +67,17 @@ public class ManejoFacturas implements Serializable {
         detallesSinAsignar.add(detalle);
         this.precioFinal=this.precioFinal+detalle.precioTotal;
     }
-    public Factura buscarFacturaPorNombre(String nombre) {
+    public Factura buscarFacturaPorCodigo(int codigo) {
         for (Factura factura : facturas) {
-            if (factura.getNombre().equalsIgnoreCase(nombre)) {
+            if (factura.getCodigo()==codigo) {
+                return factura;
+            }
+        }
+        return null;
+    }
+    public Factura buscarFacturaReservaPorCodigo(int codigo) {
+        for (Factura factura : facturasReservadas) {
+            if (factura.getCodigo()==codigo) {
                 return factura;
             }
         }
@@ -98,12 +106,26 @@ public class ManejoFacturas implements Serializable {
         StringBuilder actividadesSinCupo = new StringBuilder();
 
         for (Detalle detalle : detallesSinAsignar) {
-            Actividad actividad = manejoActividad.buscarActividad(detalle.getCodigoActividades());
-            if (actividad == null || actividad.getDisponible() <= 0) {
-                if (!actividadesSinCupo.isEmpty()) {
-                    actividadesSinCupo.append("\n ");
+            System.out.println("Verificando disponibilidad para la actividad con código: " + detalle.getCodigoActividades());
+
+            if (detalle.getCodigoActividades().equals("Agregar Meses")) {
+                System.out.println("En meses no hay cupos");
+            } else {
+                Actividad actividad = manejoActividad.buscarActividad(detalle.getCodigoActividades());
+                if (actividad == null) {
+                    System.out.println("Actividad no encontrada para el código: " + detalle.getCodigoActividades());
+                } else {
+                    System.out.println("Disponibilidad actual para " + detalle.getCodigoActividades() + ": " + actividad.getDisponible());
+                    if (actividad.getDisponible() <= 0) {
+                        if (!actividadesSinCupo.isEmpty()) {
+                            actividadesSinCupo.append("\n ");
+                        }
+                        actividadesSinCupo.append(detalle.getCodigoActividades());
+                    }
+                    else{
+                        actividad.setDisponible(actividad.getDisponible()-1);
+                    }
                 }
-                actividadesSinCupo.append(detalle.getCodigoActividades());
             }
         }
 
@@ -111,12 +133,6 @@ public class ManejoFacturas implements Serializable {
             return "correcto";
         } else {
             return "Las siguientes actividades no tienen cupo: " + actividadesSinCupo.toString();
-        }
-    }
-    public void reducirDisponibilidadActividades() {
-        ManejoActividad manejoActividad = ManejoActividad.getInstancia();
-        for (Detalle detalle : detallesSinAsignar) {
-            manejoActividad.reducirDisponibilidad(detalle.getCodigoActividades());
         }
     }
     private void guardarFacturaEnArchivo(Factura factura) {
@@ -146,5 +162,84 @@ public class ManejoFacturas implements Serializable {
         Miembro miembroActual=manejoMiembros.buscarMiembro(cedula);
         String nombreArchivo = "facturas/" + factura.getCodigo() + ".txt";
         whatsappManager.enviarMensajeConContenido("+593" + miembroActual.getTelefono().substring(1), mensaje, nombreArchivo);
+    }
+    public ArrayList<Factura> buscar(String campo, String valor) {
+        ArrayList<Factura> resultados = new ArrayList<>();
+        for (Factura factura : facturas) {
+            switch (campo.toLowerCase()) {
+                case "nombre":
+                    if (factura.getNombre().equalsIgnoreCase(valor)) {
+                        resultados.add(factura);
+                    }
+                    break;
+                case "codigo":
+                    if (factura.getCodigo()==Integer.parseInt(valor)) {
+                        resultados.add(factura);
+                    }
+                    break;
+                case "cedula del usuario":
+                    if (factura.getCedulaUsuario().equalsIgnoreCase(valor)) {
+                        resultados.add(factura);
+                    }
+                    break;
+                case "total":
+                    try {
+                        double total = Double.parseDouble(valor);
+                        if (factura.getPrecioFinal() == total) {
+                            resultados.add(factura);
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("El valor para el total no es válido.");
+                    }
+                    break;
+                default:
+                    System.out.println("Campo de búsqueda no válido.");
+                    break;
+            }
+        }
+        return resultados;
+    }
+    public ArrayList<Factura> buscarPorFecha(String criterio, String mes, int anio) {
+        ArrayList<Factura> resultados = new ArrayList<>();
+        int mesInt = obtenerNumeroMes(mes);
+
+        for (Factura factura : facturas) {
+            LocalDate fecha = null;
+            fecha=factura.getFechaFacturacion();
+            if (fecha != null && fecha.getYear() == anio && fecha.getMonthValue() == mesInt) {
+                resultados.add(factura);
+            }
+        }
+        return resultados;
+    }
+    private int obtenerNumeroMes(String mes) {
+        switch (mes.toLowerCase()) {
+            case "enero":
+                return 1;
+            case "febrero":
+                return 2;
+            case "marzo":
+                return 3;
+            case "abril":
+                return 4;
+            case "mayo":
+                return 5;
+            case "junio":
+                return 6;
+            case "julio":
+                return 7;
+            case "agosto":
+                return 8;
+            case "septiembre":
+                return 9;
+            case "octubre":
+                return 10;
+            case "noviembre":
+                return 11;
+            case "diciembre":
+                return 12;
+            default:
+                throw new IllegalArgumentException("Mes inválido: " + mes);
+        }
     }
 }
