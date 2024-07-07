@@ -1,0 +1,12 @@
+Código de la Factura: 1
+Nombre: ads
+Fecha de Facturación: 2024-07-06
+Cédula del Usuario: 0106664741
+Precio Final: 170.0
+Detalles:
+    Código de la Clase: sadfg
+    Cantidad: 2
+    Precio Unitario: 25.0
+    Código de la Clase: asd
+    Cantidad: 8
+    Precio Unitario: 15.0

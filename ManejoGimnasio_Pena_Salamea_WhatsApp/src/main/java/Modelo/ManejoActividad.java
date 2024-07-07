@@ -104,4 +104,16 @@ public class ManejoActividad implements Serializable {
         }
         return resultados;
     }
+    public ArrayList<Actividad> obtenerActividadesPorDiaYHora(String dia, LocalTime hora) {
+        ArrayList<Actividad> actividadesEncontradas = new ArrayList<>();
+        for (Actividad actividad : actividades) {
+            if (actividad.getDia().equalsIgnoreCase(dia) &&
+                    actividad.getHorario().getHoraInicio().equals(hora)) {
+                actividadesEncontradas.add(actividad);
+                System.out.println(actividad.getNombre());
+            }
+        }
+        return actividadesEncontradas;
+    }
+
 }

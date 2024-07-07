@@ -1,0 +1,9 @@
+Código de la Factura: 4
+Nombre: adfsg
+Fecha de Facturación: 2024-07-06
+Cédula del Usuario: 0106664741
+Precio Final: 90.0
+Detalles:
+    Código de la Clase: dfg
+    Cantidad: 2
+    Precio Unitario: 45.0

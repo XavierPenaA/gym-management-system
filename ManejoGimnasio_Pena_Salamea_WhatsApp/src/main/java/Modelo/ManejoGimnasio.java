@@ -141,4 +141,14 @@ public class ManejoGimnasio implements Serializable {
         }
         return null;
     }
+    public Gimnasio buscarGimnasioPorUbicacion(String codigoUbicacion) {
+        for (Gimnasio gimnasio : gimnasios) {
+            for (Ubicacion ubicacion : gimnasio.getUbicaciones()) {
+                if (ubicacion.getCodigo().equals(codigoUbicacion)) {
+                    return gimnasio;
+                }
+            }
+        }
+        return null;
+    }
 }

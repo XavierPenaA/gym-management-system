@@ -126,5 +126,4 @@ public class ControlBuscarMiembros implements ActionListener {
             }
         }
     }
-    }
 }
