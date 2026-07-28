@@ -1,0 +1,19 @@
+# Maven build outputs
+target/
+
+# IDE specific files
+.idea/
+*.iml
+.settings/
+.project
+.classpath
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Database / Binary state dumps
+datos.dat
+facturas/
